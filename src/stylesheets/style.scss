@@ -1,0 +1,52 @@
+@import 'brand';
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  background: $ssm-key;
+  margin: 0;
+  padding: 0;
+
+  @include Europa-Regular;
+}
+
+.ssm {
+  height: 100vh;
+  position: relative;
+
+  &-logo {
+    height: auto;
+    padding-top: 25%;
+    width: 100%;
+
+    &--svg {
+      fill: $ssm-lightest;
+    }
+  }
+
+  &-mission {
+    margin: 0;
+    padding: 50px 40px;
+    position: relative;
+
+    &--statement {
+      @include Europa-Bold;
+      color: $ssm-lightest;
+      margin: 0;
+    }
+  }
+  
+  &-contact {
+    margin: 0;
+    padding: 0 40px;
+    position: relative;
+
+    &--link {
+      @include Europa-Bold;
+      color: $ssm-lightest;
+      margin: 0;
+    }
+  }
+}

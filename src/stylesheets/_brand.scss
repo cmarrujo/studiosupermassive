@@ -1,0 +1,33 @@
+$ssm-lightest: #fff;
+
+$ssm-darkest: #101010;
+$ssm-darker: #343434;
+$ssm-dark: #161616;
+
+$ssm-cyan: #4dd7fa;
+$ssm-magenta: #fd13e4;
+$ssm-key: #000;
+
+@mixin Europa-Bold {
+  font-family: europa, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin Europa-Regular {
+  font-family: europa, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin Europa-Regular-Italic {
+  font-family: europa, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@mixin Europa-Bold-Italic {
+  font-family: europa, sans-serif;
+  font-weight: 700;
+  font-style: italic;  
+}
