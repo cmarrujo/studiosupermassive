@@ -63,7 +63,9 @@ html, body {
     &--toggle {
       border-bottom: thin solid $ssm-darker;
       border-top: thin solid $ssm-darker;
-      height: 65px;
+      color: $ssm-lightest;
+      text-align: center;
+      padding: 25px 0 15px 0;
     }
 
     &--form {
