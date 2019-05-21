@@ -49,4 +49,51 @@ html, body {
       margin: 0;
     }
   }
+
+  &-slideout {
+    @include Fira-Mono-OT-Regular;
+    background: $ssm-key;
+    bottom: 0;
+    height: 100vh;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+
+    &--toggle {
+      border-bottom: thin solid $ssm-darker;
+      border-top: thin solid $ssm-darker;
+      height: 65px;
+    }
+
+    &--form {
+      color: $ssm-lightest;
+      font-size: 10px;
+      padding: 25px;
+
+      &_prompt {
+        margin: 40px 0;
+      }
+
+      &_field-wrapper {
+        display: flex;
+        flex-grow: 1;
+        margin: 35px 0;
+        position: relative;
+      }
+
+      &_name-lbl, &_message-lbl {
+        flex-grow: 1;
+        flex-basis: 30%;
+      }
+      
+      &_name-fld, &_message-fld {
+        background: transparent;
+        border: none;
+        color: $ssm-lightest;
+        flex-grow: 2;
+        flex-basis: 70%;
+      }
+    }
+  }
 }
