@@ -47,18 +47,28 @@ html, body {
       @include Europa-Bold;
       color: $ssm-lightest;
       margin: 0;
+      text-decoration: none;
     }
   }
 
   &-slideout {
     @include Fira-Mono-OT-Regular;
     background: $ssm-key;
-    bottom: 0;
+    bottom: -90%;
     height: 100vh;
     left: 0;
     position: absolute;
+    transition: all .25s ease-out;
     width: 100%;
     z-index: 99;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &[data-active='true'] {
+      bottom: 0;
+    }
 
     &--toggle {
       border-bottom: thin solid $ssm-darker;
