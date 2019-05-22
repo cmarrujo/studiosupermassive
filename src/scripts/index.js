@@ -9,20 +9,14 @@ class StudioSupermassive {
 
   exposeContactForm = () => {
     const slideout = document.querySelector('.ssm-slideout');
-    const slideoutToggle = document.querySelector('.ssm-slideout--toggle');
-    const contactLink = document.querySelector('.ssm-contact--link');
+    const slideoutToggle = document.querySelectorAll('.ssm-slideout--toggle, .ssm-contact--link');
 
-    if(slideout) {
-      slideoutToggle.addEventListener('click', () => {
-        const isActive = (document.querySelector('.ssm-slideout').getAttribute('data-active') === 'false') ? 'true' : 'false';
-        slideout.setAttribute('data-active', `${isActive}`);
-      });
-    }
-    
-    if(contactLink) {
-      contactLink.addEventListener('click', () => {
-        const isActive = (document.querySelector('.ssm-slideout').getAttribute('data-active') === 'false') ? 'true' : 'false';
-        slideout.setAttribute('data-active', `${isActive}`);
+    if(slideout && slideoutToggle.length) {
+      slideoutToggle.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+          const isActive = (document.querySelector('.ssm-slideout').getAttribute('data-active') === 'false') ? 'true' : 'false';
+          slideout.setAttribute('data-active', `${isActive}`);
+        });
       });
     }
   }
