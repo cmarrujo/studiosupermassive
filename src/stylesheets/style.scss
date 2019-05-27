@@ -21,17 +21,34 @@ html, body {
   &-logo {
     height: auto;
     padding-top: 25%;
+    min-height: 270px;
+    position: relative;
     width: 100%;
 
+    @media (min-width: 768px) {
+      margin: auto;
+      padding-top: 70%;
+      width: 80%;
+    }
+
     &--svg {
+      bottom: 0;
       fill: $ssm-lightest;
+      left: 0;
+      position: absolute;
+      width: 10%;
     }
   }
 
   &-mission {
+    line-height: 1.5;
     margin: 0;
     padding: 35px 40px 20px 40px;
     position: relative;
+
+    @media (min-width: 768px) {
+      padding: 35px 350px 20px 80px;
+    }
 
     &--statement {
       @include Europa-Bold;
@@ -54,8 +71,32 @@ html, body {
       text-decoration: none;
       transition: all .25s ease-out;
 
+      @media (min-width: 768px) {
+        font-size: 16px;
+      }
+
       &:hover {
         color: rgba($ssm-lightest, 1);
+      }
+
+      &[data-action-type='instagram'] {
+        .ssm-action--link_text {
+          color: $ssm-magenta;
+        }
+
+        &:hover {
+          color: $ssm-magenta;
+        }
+      }
+      
+      &[data-action-type='twitter'] {
+        .ssm-action--link_text {
+          color: $ssm-cyan;
+        }
+
+        &:hover {
+          color: $ssm-cyan;
+        }
       }
     }
   }
@@ -94,6 +135,10 @@ html, body {
       padding: 50px 0 15px 0;
       position: relative;
 
+      @media (min-width: 768px) {
+        padding: 80px 0 20px 0;
+      }
+
       &:after {
         content: '^';
         color: $ssm-lightest;
@@ -112,7 +157,13 @@ html, body {
     &--form {
       color: $ssm-lightest;
       font-size: 10px;
+      margin: 80px 0 50px 0;
       padding: 25px;
+
+      @media (min-width: 768px) {
+        font-size: 16px;
+        padding: 80px;
+      }
 
       &_prompt {
         margin: 40px 0;
@@ -136,6 +187,29 @@ html, body {
         color: $ssm-lightest;
         flex-grow: 2;
         flex-basis: 70%;
+      }
+    }
+
+    &--social {
+      padding: 25px;
+      position: relative;
+
+      @media (min-width: 768px) {
+        padding: 80px;
+      }
+
+      &_header {
+        color: $ssm-lightest;
+        font-size: 10px;
+
+        @media (min-width: 768px) {
+          font-size: 16px;
+        }
+      }
+
+      .ssm-action {
+        display: inline-block;
+        margin-right: 10px;
       }
     }
   }
