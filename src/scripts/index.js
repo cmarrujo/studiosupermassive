@@ -9,7 +9,7 @@ class StudioSupermassive {
 
   exposeContactForm = () => {
     const slideout = document.querySelector('.ssm-slideout');
-    const slideoutToggle = document.querySelectorAll('.ssm-slideout--toggle, .ssm-contact--link');
+    const slideoutToggle = document.querySelectorAll('.ssm-slideout--toggle, .ssm-action--link');
 
     if(slideout && slideoutToggle.length) {
       slideoutToggle.forEach((toggle) => {
