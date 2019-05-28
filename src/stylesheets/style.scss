@@ -1,27 +1,22 @@
-@import 'brand';
-
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  background: $ssm-key;
-  margin: 0;
-  padding: 0;
-
-  @include Europa-Regular;
-}
+@import 'base';
 
 .ssm {
+  background: url('../images/black-hole--mobile.jpg') top center no-repeat;
+  background-size: cover;
   height: 100vh;
   position: relative;
   overflow: hidden;
   width: 100vw;
 
+  @media (min-width: 1024px) {
+    background: url('../images/black-hole--desktop.jpg') top center no-repeat;
+    background-size: cover;
+  }
+
   &-logo {
     height: auto;
     padding-top: 25%;
-    min-height: 270px;
+    min-height: 45vh;
     position: relative;
     width: 100%;
 
@@ -29,6 +24,12 @@ html, body {
       margin: auto;
       padding-top: 70%;
       width: 80%;
+    }
+    
+    @media (min-width: 1920px) {
+      margin: auto 15%;
+      padding-top: 35%;
+      width: 40%;
     }
 
     &--svg {
@@ -48,6 +49,10 @@ html, body {
 
     @media (min-width: 768px) {
       padding: 35px 350px 20px 80px;
+    }
+    
+    @media (min-width: 1920px) {
+      padding: 35px 15%;
     }
 
     &--statement {
@@ -109,8 +114,13 @@ html, body {
     left: 0;
     position: absolute;
     transition: all .25s ease-out;
-    width: 100%;
+    width: 40vw;
     z-index: 99;
+
+    @media (min-width: 1920px) {
+      bottom: 0;
+      left: 60%;
+    }
 
     &:hover {
       cursor: pointer;
@@ -132,11 +142,19 @@ html, body {
       border-top: thin solid $ssm-darker;
       color: $ssm-lightest;
       text-align: center;
-      padding: 50px 0 15px 0;
+      padding: 15px 0 40px 0;
       position: relative;
 
       @media (min-width: 768px) {
         padding: 80px 0 20px 0;
+      }
+      
+      @media (min-width: 1920px) {
+        border: thin solid blue;
+        height: 100vh;
+        left: 0;
+        position: absolute;
+        width: 100px;
       }
 
       &:after {
@@ -157,12 +175,18 @@ html, body {
     &--form {
       color: $ssm-lightest;
       font-size: 10px;
-      margin: 80px 0 50px 0;
+      margin: 0 0 50px 0;
       padding: 25px;
 
       @media (min-width: 768px) {
         font-size: 16px;
         padding: 80px;
+      }
+      
+      @media (min-width: 1920px) {
+        border: thin solid red;
+        margin: auto;
+        width: 70%;
       }
 
       &_prompt {
@@ -196,6 +220,12 @@ html, body {
 
       @media (min-width: 768px) {
         padding: 80px;
+      }
+
+      @media (min-width: 1920px) {
+        border: thin solid red;
+        margin: auto;
+        width: 70%;
       }
 
       &_header {

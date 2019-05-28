@@ -1,0 +1,11 @@
+@import 'brand';
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: $ssm-key;
+  margin: 0;
+  padding: 0;
+
+  @include Europa-Regular;
+}
