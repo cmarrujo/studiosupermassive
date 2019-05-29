@@ -13,6 +13,18 @@
     background-size: cover;
   }
 
+  &-logo--wrapper {
+    @media (min-width: 1920px) {
+      display: flex;
+      flex-direction: row;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+    }
+  }
+
   &-logo {
     height: auto;
     padding-top: 25%;
@@ -27,9 +39,10 @@
     }
     
     @media (min-width: 1920px) {
-      margin: auto 15%;
-      padding-top: 35%;
-      width: 40%;
+      margin: 0;
+      min-height: inherit;
+      padding-top: 0;
+      width: 60%;
     }
 
     &--svg {
@@ -38,6 +51,22 @@
       left: 0;
       position: absolute;
       width: 10%;
+
+      @media (min-width: 1920px) {
+        bottom: 0;
+        left: auto;
+        position: relative;
+        width: 100%;
+      }
+    }
+  }
+
+  &-mission--wrapper {
+    @media (min-width: 1920px) {
+      position: absolute;
+      left: 40%;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 
@@ -52,7 +81,8 @@
     }
     
     @media (min-width: 1920px) {
-      padding: 35px 15%;
+      padding: 0;
+      width: 40%;
     }
 
     &--statement {
@@ -60,6 +90,11 @@
       color: $ssm-lightest;
       font-size: 20px;
       margin: 0 0 30px 0;
+
+      @media (min-width: 1920px) {
+        font-size: 52px;
+        line-height: 1.25;
+      }
     }
   }
   
@@ -114,12 +149,13 @@
     left: 0;
     position: absolute;
     transition: all .25s ease-out;
-    width: 40vw;
+    width: 100vw;
     z-index: 99;
 
     @media (min-width: 1920px) {
       bottom: 0;
-      left: 60%;
+      width: 40vw;
+      left: 96%;
     }
 
     &:hover {
@@ -150,7 +186,10 @@
       }
       
       @media (min-width: 1920px) {
-        border: thin solid blue;
+        border-bottom: none;
+        border-top: none;
+        border-left: thin solid $ssm-darker;
+        border-right: thin solid $ssm-darker;
         height: 100vh;
         left: 0;
         position: absolute;
