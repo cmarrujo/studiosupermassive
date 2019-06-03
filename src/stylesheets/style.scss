@@ -1,7 +1,7 @@
 @import 'base';
 
 .ssm {
-  background: url('../images/black-hole--mobile.jpg') top center no-repeat;
+  // background: url('../images/black-hole--mobile.jpg') top center no-repeat;
   background-size: cover;
   height: 100vh;
   position: relative;
@@ -9,7 +9,7 @@
   width: 100vw;
 
   @media (min-width: 1024px) {
-    background: url('../images/black-hole--desktop.jpg') top center no-repeat;
+    // background: url('../images/black-hole--desktop.jpg') top center no-repeat;
     background-size: cover;
   }
 
@@ -17,11 +17,17 @@
     @media (min-width: 1920px) {
       display: flex;
       flex-direction: row;
+      height: 100%;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 90%;
+      transition: all .25s ease-out;
+      width: 100%;
+    }
+
+    &[data-active='true'] {
+      left: 15%;
     }
   }
 
@@ -42,7 +48,7 @@
       margin: 0;
       min-height: inherit;
       padding-top: 0;
-      width: 60%;
+      width: 75%;
     }
 
     &--svg {
@@ -53,19 +59,22 @@
       width: 10%;
 
       @media (min-width: 1920px) {
-        bottom: 0;
-        left: auto;
-        position: relative;
-        width: 100%;
+        bottom: auto;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 10%;
       }
     }
   }
 
   &-mission--wrapper {
     @media (min-width: 1920px) {
+      opacity: 0;
       position: absolute;
       left: 40%;
-      top: 50%;
+      top: 60%;
       transform: translate(-50%, -50%);
     }
   }
@@ -152,6 +161,18 @@
     width: 100vw;
     z-index: 99;
 
+    @media (min-width: 375px) {
+      bottom: -92%;
+    }
+    
+    @media (min-width: 400px) {
+      bottom: -93%;
+    }
+    
+    @media (min-width: 414px) {
+      bottom: -92%;
+    }
+
     @media (min-width: 1920px) {
       bottom: 0;
       width: 40vw;
@@ -165,10 +186,19 @@
     &[data-active='true'] {
       bottom: 0;
 
+      @media (min-width: 1920px) {
+        left: 60%;
+      }
+
       .ssm-slideout--toggle {
         &:after {
-          transform: rotate(180deg);
+          transform: rotateX(180deg) rotateY(180deg) rotateZ(0deg);
           transition-delay: .15s;
+
+          @media (min-width: 1920px) {
+            left: 50%;
+            transform: rotateX(0deg) rotateY(-180deg) rotateZ(-90deg);
+          }
         }
       }
     }
@@ -202,12 +232,18 @@
         height: 12px;
         left: 50%;
         position: absolute;
-        top: 50%;
-        transform: rotateY(180deg);
+        top: 45%;
+        transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
         transform-style: preserve-3d;
         transform-origin: 25% 25%;
         transition: all .45s ease-out;
         width: 20px;
+
+        @media (min-width: 1920px) {
+          left: 45%;
+          top: 50%;
+          transform: rotateX(0deg) rotateY(0deg) rotateZ(-90deg);
+        }
       }
     }
 
@@ -223,8 +259,8 @@
       }
       
       @media (min-width: 1920px) {
-        border: thin solid red;
         margin: auto;
+        padding: 250px 80px;
         width: 70%;
       }
 
@@ -262,8 +298,8 @@
       }
 
       @media (min-width: 1920px) {
-        border: thin solid red;
         margin: auto;
+        padding: 200px 80px;
         width: 70%;
       }
 
