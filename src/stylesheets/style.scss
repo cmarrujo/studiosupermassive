@@ -1,20 +1,47 @@
 @import 'base';
 
 .ssm {
-  // background: url('../images/black-hole--mobile.jpg') top center no-repeat;
+  background: url('../images/universe--mobile.jpg') top center no-repeat;
   background-size: cover;
   height: 100vh;
   position: relative;
   overflow: hidden;
   width: 100vw;
 
+  @media (min-width: 768px) {
+    background: url('../images/universe--tablet.jpg') top center no-repeat;
+    background-size: cover;
+  }
+  
   @media (min-width: 1024px) {
-    // background: url('../images/black-hole--desktop.jpg') top center no-repeat;
+    background: url('../images/universe--desktop-sm.jpg') top center no-repeat;
+    background-size: cover;
+  }
+  
+  @media (min-width: 1440px) {
+    background: url('../images/universe--desktop-md.jpg') 0 no-repeat;
+    background-size: cover;
+  }
+  
+  @media (min-width: 1920px) {
+    background: url('../images/universe--desktop-lg.jpg') top center no-repeat;
     background-size: cover;
   }
 
   &-logo--wrapper {
-    @media (min-width: 1920px) {
+    @media (min-width: 1024px) {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: all .25s ease-out;
+      width: 100%;
+    }
+    
+    @media (min-width: 1440px) {
       display: flex;
       flex-direction: row;
       height: 100%;
@@ -44,10 +71,18 @@
       width: 80%;
     }
     
-    @media (min-width: 1920px) {
+    @media (min-width: 1024px) {
       margin: 0;
-      min-height: inherit;
       padding-top: 0;
+      width: 60%;
+    }
+    
+    @media (min-width: 1440px) {
+      min-height: inherit;
+      width: 65%;
+    }
+    
+    @media (min-width: 1920px) {
       width: 75%;
     }
 
@@ -58,7 +93,16 @@
       position: absolute;
       width: 10%;
 
-      @media (min-width: 1920px) {
+      @media (min-width: 1024px) {
+        bottom: auto;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 10%;
+      }
+      
+      @media (min-width: 1440px) {
         bottom: auto;
         left: 50%;
         position: absolute;
@@ -70,7 +114,21 @@
   }
 
   &-mission--wrapper {
-    @media (min-width: 1920px) {
+    opacity: 0;
+    position: absolute;
+    left: 40%;
+    top: 200%;
+    transform: translate(-50%, -0%);
+    
+    @media (min-width: 1024px) {
+      opacity: 0;
+      position: absolute;
+      left: 40%;
+      top: 60%;
+      transform: translate(-50%, -50%);
+    }
+    
+    @media (min-width: 1440px) {
       opacity: 0;
       position: absolute;
       left: 40%;
@@ -89,6 +147,11 @@
       padding: 35px 350px 20px 80px;
     }
     
+    @media (min-width: 1440px) {
+      padding: 0;
+      width: 45%;
+    }
+    
     @media (min-width: 1920px) {
       padding: 0;
       width: 40%;
@@ -100,9 +163,22 @@
       font-size: 20px;
       margin: 0 0 30px 0;
 
+      @media (min-width: 1024px) {
+        font-size: 28px;
+        line-height: 1;
+        margin: 0 0 15px 0;
+      }
+      
+      @media (min-width: 1440px) {
+        font-size: 35px;
+        line-height: 1;
+        margin: 0 0 15px 0;
+      }
+      
       @media (min-width: 1920px) {
         font-size: 52px;
         line-height: 1.25;
+        margin: 0 0 30px 0;
       }
     }
   }
@@ -175,10 +251,24 @@
     @media (min-width: 414px) {
       bottom: -92%;
     }
+    
+    @media (min-width: 768px) {
+      bottom: -90%;
+    }
 
-    @media (min-width: 1920px) {
+    @media (min-width: 1024px) {
+      bottom: 0;
+      width: 45vw;
+      left: 94%;
+    }
+    
+    @media (min-width: 1440px) {
       bottom: 0;
       width: 40vw;
+      left: 93%;
+    }
+    
+    @media (min-width: 1920px) {
       left: 96%;
     }
 
@@ -189,7 +279,11 @@
     &[data-active='true'] {
       bottom: 0;
 
-      @media (min-width: 1920px) {
+      @media (min-width: 1024px) {
+        left: 55%;
+      }
+      
+      @media (min-width: 1440px) {
         left: 60%;
       }
 
@@ -198,7 +292,12 @@
           transform: rotateX(180deg) rotateY(180deg) rotateZ(0deg);
           transition-delay: .15s;
 
-          @media (min-width: 1920px) {
+          @media (min-width: 1024px) {
+            left: 50%;
+            transform: rotateX(0deg) rotateY(-180deg) rotateZ(-90deg);
+          }
+          
+          @media (min-width: 1440px) {
             left: 50%;
             transform: rotateX(0deg) rotateY(-180deg) rotateZ(-90deg);
           }
@@ -218,7 +317,19 @@
         padding: 80px 0 20px 0;
       }
       
-      @media (min-width: 1920px) {
+      @media (min-width: 1024px) {
+        border-bottom: none;
+        border-top: none;
+        border-left: thin solid $ssm-darker;
+        border-right: thin solid $ssm-darker;
+        height: 100vh;
+        left: 0;
+        position: absolute;
+        width: 60px;
+        z-index: 99;
+      }
+      
+      @media (min-width: 1440px) {
         border-bottom: none;
         border-top: none;
         border-left: thin solid $ssm-darker;
@@ -242,7 +353,13 @@
         transition: all .45s ease-out;
         width: 20px;
 
-        @media (min-width: 1920px) {
+        @media (min-width: 1024px) {
+          left: 35%;
+          top: 50%;
+          transform: rotateX(0deg) rotateY(0deg) rotateZ(-90deg);
+        }
+        
+        @media (min-width: 1440px) {
           left: 45%;
           top: 50%;
           transform: rotateX(0deg) rotateY(0deg) rotateZ(-90deg);
@@ -261,7 +378,7 @@
         padding: 80px;
       }
       
-      @media (min-width: 1920px) {
+      @media (min-width: 1440px) {
         margin: auto;
         padding: 250px 80px;
         width: 70%;
@@ -324,7 +441,7 @@
         padding: 80px;
       }
 
-      @media (min-width: 1920px) {
+      @media (min-width: 1440px) {
         margin: auto;
         padding: 200px 80px;
         width: 70%;
