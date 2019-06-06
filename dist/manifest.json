@@ -2,5 +2,10 @@
   "app.css": "stylesheets/app.css",
   "app.css.map": "stylesheets/app.css.map",
   "app.js": "scripts/app.js",
-  "app.js.map": "scripts/app.js.map"
+  "app.js.map": "scripts/app.js.map",
+  "images/universe--desktop-lg.jpg": "images/universe--desktop-lg.jpg",
+  "images/universe--desktop-md.jpg": "images/universe--desktop-md.jpg",
+  "images/universe--desktop-sm.jpg": "images/universe--desktop-sm.jpg",
+  "images/universe--mobile.jpg": "images/universe--mobile.jpg",
+  "images/universe--tablet.jpg": "images/universe--tablet.jpg"
 }
