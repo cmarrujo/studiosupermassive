@@ -13,7 +13,7 @@
     background-size: cover;
   }
   
-  @media (min-width: 1024px) {
+  @media (min-width: 800px) {
     background: url('../images/universe--desktop-sm.jpg') top center no-repeat;
     background-size: cover;
   }
@@ -51,7 +51,7 @@
       width: 100%;
     }
     
-    @media (min-width: 1024px) {
+    @media (min-width: 800px) {
       display: flex;
       flex-direction: row;
       height: 100%;
@@ -102,7 +102,7 @@
       width: 90%;
     }
     
-    @media (min-width: 1024px) {
+    @media (min-width: 800px) {
       margin: 0;
       padding-top: 0;
       width: 60%;
@@ -138,7 +138,7 @@
         width: 10%;
       }
       
-      @media (min-width: 1024px) {
+      @media (min-width: 800px) {
         bottom: auto;
         left: 55%;
         position: absolute;
@@ -183,7 +183,7 @@
       width: 90%;
     }
     
-    @media (min-width: 1024px) {
+    @media (min-width: 800px) {
       opacity: 0;
       position: absolute;
       left: 45%;
@@ -220,7 +220,7 @@
       padding: 35px 350px 20px 80px;
     }
     
-    @media (min-width: 1024px) {
+    @media (min-width: 800px) {
       padding: 0;
     }
     
@@ -253,7 +253,7 @@
         margin: 0 0 15px 0;
       }
 
-      @media (min-width: 1024px) {
+      @media (min-width: 800px) {
         font-size: 24px;
         line-height: 1;
         margin: 0 0 15px 0;
@@ -350,7 +350,7 @@
       bottom: -90%;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 800px) {
       bottom: 0;
       width: 45vw;
       left: 94%;
@@ -373,7 +373,7 @@
     &[data-active='true'] {
       bottom: 0;
 
-      @media (min-width: 1024px) {
+      @media (min-width: 800px) {
         left: 55%;
       }
       
@@ -386,7 +386,7 @@
           transform: rotateX(180deg) rotateY(180deg) rotateZ(0deg);
           transition-delay: .15s;
 
-          @media (min-width: 1024px) {
+          @media (min-width: 800px) {
             left: 50%;
             transform: rotateX(0deg) rotateY(-180deg) rotateZ(-90deg);
           }
@@ -411,7 +411,7 @@
         padding: 80px 0 20px 0;
       }
       
-      @media (min-width: 1024px) {
+      @media (min-width: 800px) {
         border-bottom: none;
         border-top: none;
         border-left: thin solid $ssm-darker;
@@ -451,7 +451,7 @@
         transition: all .45s ease-out;
         width: 20px;
 
-        @media (min-width: 1024px) {
+        @media (min-width: 800px) {
           left: 35%;
           top: 50%;
           transform: rotateX(0deg) rotateY(0deg) rotateZ(-90deg);
