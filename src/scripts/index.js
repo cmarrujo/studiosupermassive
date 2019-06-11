@@ -7,7 +7,7 @@ import { Power0 } from 'gsap';
 class StudioSupermassive {
   constructor() {
     this.superMassiveIntro();
-    this.superMassiveParallax();
+    // this.superMassiveParallax();
     this.superMassiveGlitch();
     this.superMassiveForm();
   }
@@ -56,6 +56,9 @@ class StudioSupermassive {
 
         if(svg.hasAttribute('data-animate')) {
           svg.setAttribute('data-animate', 'true');
+          svg.addEventListener('transitionend', (e) => {
+            console.log('transitionend');
+          });
 
           // TweenMax.to(svg, .25, {
           //   left: `${randPosLeft}%`,

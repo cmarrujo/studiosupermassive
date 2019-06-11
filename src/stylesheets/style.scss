@@ -119,6 +119,7 @@
 
     &--svg {
       bottom: 0;
+      cursor: pointer;
       fill: $ssm-lightest;
       left: 0;
       position: absolute;
@@ -156,58 +157,134 @@
         width: 10%;
       }
 
-      &.cyan {
-        fill: $ssm-cyan;
-        left: 53%;
-        top: 50%;
-        opacity: 0;
-        transition: all .28s ease-out;
-
-        &[data-animate='true'] {
+      @keyframes cyanGlitch {
+        0% {
+          left: 53%;
+          top: 50%;
+        }
+        25% {
           left: 54%;
           top: 51%;
+        }
+        50% {
+          left: 51%;
+          top: 52%;
+        }
+        75% {
+          left: 54%;
+          top: 53%;
+        }
+        100% {
+          left: 55%;
+          top: 51%;
+        }
+      }
+
+      &.cyan {
+        fill: $ssm-cyan;
+        opacity: 0;
+
+        &[data-animate='true'] {
+          animation: cyanGlitch 1s infinite;
           opacity: .90;
+        }
+      }
+
+      @keyframes magentaGlitch {
+        0% {
+          left: 52%;
+          top: 50%;
+        }
+        25% {
+          left: 51%;
+          top: 52%;
+        }
+        50% {
+          left: 53%;
+          top: 54%;
+        }
+        75% {
+          left: 54%;
+          top: 53%;
+        }
+        100% {
+          left: 53%;
+          top: 48%;
         }
       }
       
       &.magenta {
         fill: $ssm-magenta;
-        left: 53%;
-        top: 50%;
         opacity: 0;
-        transition: all .24s ease-out;
 
         &[data-animate='true'] {
-          left: 53%;
-          top: 48%;
+          animation: magentaGlitch .55s infinite;
           opacity: .85;
+        }
+      }
+
+      @keyframes yellowGlitch {
+        0% {
+          left: 52%;
+          top: 49%;
+        }
+        25% {
+          left: 54%;
+          top: 51%;
+        }
+        50% {
+          left: 53%;
+          top: 52%;
+        }
+        75% {
+          left: 54%;
+          top: 53%;
+        }
+        100% {
+          left: 56%;
+          top: 51%;
         }
       }
      
       &.yellow {
         fill: $ssm-yellow;
-        left: 53%;
-        top: 50%;
         opacity: 0;
-        transition: all .27s ease-out;
 
         &[data-animate='true'] {
-          left: 53%;
-          top: 49%;
+          animation: yellowGlitch 1.2s infinite;
           opacity: .95;
         }
       }
       
-      &.lightest {
-        fill: $ssm-lightest;
-        left: 53%;
-        top: 50%;
-        opacity: 0;
-        transition: all .25s ease-out;
-
-        &[data-animate='true'] {
+      @keyframes lightestGlitch {
+        0% {
+          left: 52%;
+          top: 49%;
+        }
+        25% {
+          left: 54%;
+          top: 51%;
+        }
+        50% {
           left: 53%;
           top: 52%;
+        }
+        75% {
+          left: 54%;
+          top: 53%;
+        }
+        100% {
+          left: 56%;
+          top: 51%;
+        }
+      }
+
+      &.lightest {
+        fill: $ssm-lightest;
+        opacity: 0;
+
+        &[data-animate='true'] {
+          animation: lightestGlitch 1.5s infinite;
           opacity: .25;
         }
       }
