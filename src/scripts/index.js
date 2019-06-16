@@ -18,13 +18,77 @@ class StudioSupermassive {
 
     timeline.to(".ssm-logo--svg", 5, {
       ease: Power4.easeOut,
-      width: '100%'
+      width: '100%',
+      onComplete: this.superMassiveStagger
     })
     .to(".ssm-mission--wrapper", 4.5, {
       ease: Power4.easeOut,
       opacity: 1,
-      top: '50%'
+      top: '50%',
     },'-=4.5');
+  }
+
+  superMassiveStagger = () => {
+    const ssmLogoSVG1 = qsa('.ssm-logo--svg.magenta');
+    const ssmLogoSVG2 = qsa('.ssm-logo--svg.yellow');
+    const ssmLogoSVG3 = qsa('.ssm-logo--svg.cyan');
+    const ssmLogoSVG4 = qsa('.ssm-logo--svg.lightest');
+    const timeline1 = new TimelineLite();
+    const timeline2 = new TimelineLite();
+    const timeline3 = new TimelineLite();
+    const timeline4 = new TimelineLite();
+       
+    timeline1.to(ssmLogoSVG1, .20, {
+      left: `${Math.floor(Math.random() * 2) + 52}%`,
+      top: `${Math.floor(Math.random() * 2) + 49}%`,
+      opacity: 1,
+      ease: Power1.easeOut
+    })
+    .to(ssmLogoSVG1, .25, {
+      left: `53%`,
+      top: `50%`,
+      opacity: 0,
+      ease: Power2.easeOut
+    })
+    
+    timeline2.to(ssmLogoSVG2, .21, {
+      left: `${Math.floor(Math.random() * 2) + 52}%`,
+      top: `${Math.floor(Math.random() * 2) + 50}%`,
+      opacity: 1,
+      ease: Power3.easeOut
+    })
+    .to(ssmLogoSVG2, .25, {
+      left: `53%`,
+      top: `50%`,
+      opacity: 0,
+      ease: Power4.easeOut
+    })
+    
+    timeline3.to(ssmLogoSVG3, .20, {
+      left: `${Math.floor(Math.random() * 2) + 53}%`,
+      top: `${Math.floor(Math.random() * 2) + 50}%`,
+      opacity: 1,
+      ease: Power4.easeOut
+    })
+    .to(ssmLogoSVG3, .25, {
+      left: `53%`,
+      top: `50%`,
+      opacity: 0,
+      ease: Power3.easeOut
+    })
+    
+    timeline4.to(ssmLogoSVG4, .20, {
+      left: `${Math.floor(Math.random() * 2) + 53}%`,
+      top: `${Math.floor(Math.random() * 2) + 50}%`,
+      opacity: 1,
+      ease: Power4.easeOut
+    })
+    .to(ssmLogoSVG4, .25, {
+      left: `53%`,
+      top: `50%`,
+      opacity: 0,
+      ease: Power2.easeOut
+    })
   }
 
   superMassiveParallax = () => {
@@ -48,22 +112,69 @@ class StudioSupermassive {
   superMassiveGlitch = () => {
     const ssmLogo = qs('.ssm-logo');
     const ssmLogoSVG = qsa('.ssm-logo--svg');
+    const ssmLogoSVG1 = qsa('.ssm-logo--svg.magenta');
+    const ssmLogoSVG2 = qsa('.ssm-logo--svg.yellow');
+    const ssmLogoSVG3 = qsa('.ssm-logo--svg.cyan');
+    const ssmLogoSVG4 = qsa('.ssm-logo--svg.lightest');
+    const timeline1 = new TimelineLite();
+    const timeline2 = new TimelineLite();
+    const timeline3 = new TimelineLite();
+    const timeline4 = new TimelineLite();
 
     ssmLogo.addEventListener('mousedown', (e) => {
       ssmLogoSVG.forEach((svg) => {
-        const randPosLeft = Math.floor(Math.random() * 2) + 54;
-        const randPosTop = Math.floor(Math.random() * 2) + 48;
-
         if(svg.hasAttribute('data-animate')) {
-          svg.setAttribute('data-animate', 'true');
-          svg.addEventListener('transitionend', (e) => {
-            console.log('transitionend');
-          });
-
-          // TweenMax.to(svg, .25, {
-          //   left: `${randPosLeft}%`,
-          //   top: `${randPosTop}%`
-          // });
+          timeline1.to(ssmLogoSVG1, .20, {
+            left: `${Math.floor(Math.random() * 2) + 53}%`,
+            top: `${Math.floor(Math.random() * 2) + 50}%`,
+            opacity: 1,
+            ease: Power1.easeOut,
+          })
+          .to(ssmLogoSVG1, .15, {
+            left: `${Math.floor(Math.random() * 3) + 53}%`,
+            top: `${Math.floor(Math.random() * 3) + 50}%`,
+            opacity: 1,
+            ease: Power1.easeOut
+          })
+          
+          timeline2.to(ssmLogoSVG2, .20, {
+            left: `${Math.floor(Math.random() * 2) + 53}%`,
+            top: `${Math.floor(Math.random() * 2) + 50}%`,
+            opacity: 1,
+            ease: Power3.easeOut
+          })
+          .to(ssmLogoSVG2, .15, {
+            left: `${Math.floor(Math.random() * 3) + 53}%`,
+            top: `${Math.floor(Math.random() * 3) + 50}%`,
+            opacity: 1,
+            ease: Power3.easeOut
+          })
+          
+          timeline3.to(ssmLogoSVG3, .20, {
+            left: `${Math.floor(Math.random() * 2) + 53}%`,
+            top: `${Math.floor(Math.random() * 2) + 50}%`,
+            opacity: 1,
+            ease: Power4.easeOut
+          })
+          .to(ssmLogoSVG3, .15, {
+            left: `${Math.floor(Math.random() * 3) + 53}%`,
+            top: `${Math.floor(Math.random() * 3) + 50}%`,
+            opacity: 1,
+            ease: Power4.easeOut
+          })
+          
+          timeline4.to(ssmLogoSVG4, .20, {
+            left: `${Math.floor(Math.random() * 2) + 53}%`,
+            top: `${Math.floor(Math.random() * 2) + 50}%`,
+            opacity: 1,
+            ease: Power4.easeOut
+          })
+          .to(ssmLogoSVG4, .15, {
+            left: `${Math.floor(Math.random() * 3) + 53}%`,
+            top: `${Math.floor(Math.random() * 3) + 50}%`,
+            opacity: 1,
+            ease: Power4.easeOut
+          })
         }
       });
     });
@@ -71,7 +182,33 @@ class StudioSupermassive {
     ssmLogo.addEventListener('mouseup', (e) => {
       ssmLogoSVG.forEach((svg) => {
         if(svg.hasAttribute('data-animate')) {
-          svg.setAttribute('data-animate', 'false');
+          timeline1.to(ssmLogoSVG1, .25, {
+            left: `53%`,
+            top: `50%`,
+            opacity: 0,
+            ease: Power2.easeOut
+          })
+          
+          timeline2.to(ssmLogoSVG2, .25, {
+            left: `53%`,
+            top: `50%`,
+            opacity: 0,
+            ease: Power4.easeOut
+          })
+          
+          timeline3.to(ssmLogoSVG3, .25, {
+            left: `53%`,
+            top: `50%`,
+            opacity: 0,
+            ease: Power3.easeOut
+          })
+          
+          timeline4.to(ssmLogoSVG4, .25, {
+            left: `53%`,
+            top: `50%`,
+            opacity: 0,
+            ease: Power2.easeOut
+          })
         }
       });
     });
