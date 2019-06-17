@@ -621,13 +621,25 @@
 
       &_prompt {
         margin: 40px 0;
+
+        &.thankyou_message {
+          display: none;
+        }
       }
 
       &_field-wrapper {
         display: flex;
         flex-grow: 1;
-        margin: 35px 0;
+        margin: 25px 0;
         position: relative;
+
+        @media (min-width: 768px) {
+          margin: 35px 0;
+        }
+
+        &.honeypot-field {
+          display: none;
+        }
       }
 
       &_name-lbl, &_message-lbl {
@@ -657,19 +669,34 @@
 
       &_name-fld, &_message-fld {
         background: transparent;
-        outline: thin solid $ssm-darker;
         border: none;
+        border-bottom: thin solid $ssm-darker;
         color: $ssm-lightest;
         flex-grow: 2;
         flex-basis: 70%;
         height: 30px;
         margin: 0;
-        padding: 0;
+        padding: 5px;
+      }
+
+      &_message-fld {
+        &.message {
+          border: thin solid $ssm-darker;
+          height: 75px;
+
+          @media (min-width: 768px) {
+            height: 100px;
+          }
+          
+          @media (min-width: 1440px) {
+            height: 200px;
+          }
+        }
       }
     }
 
     &--social {
-      padding: 25px;
+      padding: 10px 0;
       position: relative;
 
       @media (min-width: 768px) {
@@ -678,8 +705,8 @@
 
       @media (min-width: 1440px) {
         margin: auto;
-        padding: 200px 80px;
-        width: 70%;
+        padding: 25px 0 0 0px;
+        width: 100%;
       }
 
       &_header {

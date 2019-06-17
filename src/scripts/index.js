@@ -216,7 +216,7 @@ class StudioSupermassive {
 
   superMassiveForm = () => {
     const slideout = qs('.ssm-slideout');
-    const slideoutToggle = qsa('.ssm-slideout--toggle, .ssm-action--link');
+    const slideoutToggle = qsa('.ssm-slideout--toggle, .ssm-action--link.toggle');
     const ssmLogoWrapper = qs('.ssm-logo--wrapper');
 
     if(slideout && slideoutToggle.length) {

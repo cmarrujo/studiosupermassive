@@ -297,7 +297,7 @@
           <div class="ssm-mission--wrapper">
             <p class="ssm-mission--statement">we create imaginative brands and stellar web sites for visionary people and companies.</p>
             <div class="ssm-action">
-              <a href="#" class="ssm-action--link">&lt; contact &gt;</a>
+              <a href="#" class="ssm-action--link toggle">&lt; contact &gt;</a>
             </div>
           </div>
         </div>
@@ -307,39 +307,62 @@
         
         <div class="ssm-slideout--toggle"></div>
         
-        <form class="ssm-slideout--form validate" action="https://owlstudioprints.us15.list-manage.com/subscribe/post?u=456b9c810c468a9d06e98ac0e&amp;id=df76999403" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+        <form class="gform ssm-slideout--form validate" data-email="cesar@studiosupermassive.com" action="https://script.google.com/macros/s/AKfycbxQP2ss_XT7zL9xtwsoexyYavGqP7zWq1dSlS6D/exec">
 
           <p class="ssm-slideout--form_prompt">lets create something amazing!</p>
 
           <div class="ssm-slideout--form_field-wrapper">
             <div class="ssm-slideout--form_field-insert"></div>
-            <span class="ssm-slideout--form_name-lbl email" name="EMAIL" id="mce-EMAIL">your email:</span>
-            <input class="ssm-slideout--form_name-fld" type="email" />
+            <!--<span class="ssm-slideout--form_name-lbl">name:</span>-->
+            <input class="ssm-slideout--form_name-fld email" type="text" name="name" id="name" placeholder="Your name" />
+          </div>
+          
+          <div class="ssm-slideout--form_field-wrapper">
+            <div class="ssm-slideout--form_field-insert"></div>
+            <!--<span class="ssm-slideout--form_name-lbl">email:</span>-->
+            <input class="ssm-slideout--form_name-fld email" type="email" name="email" id="email" placeholder="Your email" />
+          </div>
+          
+          <div class="ssm-slideout--form_field-wrapper">
+            <div class="ssm-slideout--form_field-insert"></div>
+            <!--<span class="ssm-slideout--form_name-lbl telephone">phone:</span>-->
+            <input class="ssm-slideout--form_name-fld" type="text" name="telephone" id="telephone" placeholder="Your telephone" />
           </div>
 
           <div class="ssm-slideout--form_field-wrapper">
             <div class="ssm-slideout--form_field-insert"></div>
-            <span class="ssm-slideout--form_message-lbl">message:</span>
-            <textarea class="ssm-slideout--form_message-fld" name="MMERGE5" id="mce-MMERGE5"></textarea>
+            <!--<span class="ssm-slideout--form_message-lbl">message:</span>-->
+            <textarea class="ssm-slideout--form_message-fld message" name="message" id="message" placeholder="Your message"></textarea>
           </div>
 
           <div class="ssm-slideout--form_field-wrapper">
             <div class="ssm-action">
               <!--<a href="#" class="ssm-action--link">&lt; submit &gt;</a>-->
-              <input type="submit" value="< submit >" name="subscribe" id="mc-embedded-subscribe" class="ssm-action--link" >
+              <input type="submit" value="< submit >" name="subscribe" id="subscribe" class="ssm-action--link" >
             </div>
           </div>
 
-          <div id="mce-responses">
-            <div class="response" id="mce-error-response" style="display:none"></div>
-            <div class="response" id="mce-success-response" style="display:none"></div>
+          <fieldset class="ssm-slideout--form_field-wrapper honeypot-field">
+            <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
+            <input id="honeypot" type="text" name="honeypot" value="" />
+          </fieldset>
+
+          <p class="ssm-slideout--form_prompt thankyou_message">Thanks! for your inquire! We will be in touch very soon!</p>
+
+        <div class="ssm-slideout--social">
+
+          <p class="ssm-slideout--social_header">for all inquiries:</p>
+            
+          <div class="ssm-action">
+            <a href="mailto:inquire@studiosupermassive.com" class="ssm-action--link"><span class="ssm-action--link_text">inquire@studiosupermassive.com </span></a>
           </div>
 
-          <div style="position: absolute; left: -5000px;" aria-hidden="true">
-            <input type="text" name="b_456b9c810c468a9d06e98ac0e_df76999403" tabindex="-1" value="">
+          <div class="ssm-action">
+            <a href="tel:7142026118" class="ssm-action--link"><span class="ssm-action--link_text">714 202 - 6118</span></a>
           </div>
-        </form>
 
+        </div>
+       
         <div class="ssm-slideout--social">
 
           <p class="ssm-slideout--social_header">follow us on social media:</p>
@@ -357,6 +380,8 @@
       </div>
 
     </div>
+
+    <script data-cfasync="false" src="https://www.studiosupermassive.com/scripts/form-submission-handler.js"></script>
 
   </body>
   
