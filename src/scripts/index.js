@@ -8,7 +8,7 @@ class StudioSupermassive {
   constructor() {
     this.superMassiveIntro();
     // this.superMassiveParallax();
-    this.superMassiveGlitch();
+    // this.superMassiveGlitch();
     this.superMassiveForm();
   }
 
@@ -19,12 +19,12 @@ class StudioSupermassive {
     timeline.to(".ssm-logo--svg", 5, {
       ease: Power4.easeOut,
       width: '100%',
-      onComplete: this.superMassiveStagger
+      // onComplete: this.superMassiveStagger
     })
     .to(".ssm-mission--wrapper", 4.5, {
       ease: Power4.easeOut,
       opacity: 1,
-      top: '50%',
+      top: '200%',
     },'-=4.5');
   }
 
@@ -216,16 +216,15 @@ class StudioSupermassive {
 
   superMassiveForm = () => {
     const slideout = qs('.ssm-slideout');
-    const slideoutToggle = qsa('.ssm-slideout--toggle, .ssm-action--link.toggle');
+    const slideoutToggle = qs('.ssm-controls--menu');
     const ssmLogoWrapper = qs('.ssm-logo--wrapper');
 
-    if(slideout && slideoutToggle.length) {
-      slideoutToggle.forEach((toggle) => {
-        toggle.addEventListener('click', () => {
-          const isActive = (qs('.ssm-slideout').getAttribute('data-active') === 'false') ? 'true' : 'false';
-          slideout.setAttribute('data-active', `${isActive}`);
-          ssmLogoWrapper.setAttribute('data-active', `${isActive}`);
-        });
+    if(slideout && slideoutToggle) {
+      slideoutToggle.addEventListener('click', (e) => {
+        console.log('click');
+        const isActive = (qs('.ssm-slideout').getAttribute('data-active') === 'false') ? 'true' : 'false';
+        slideout.setAttribute('data-active', `${isActive}`);
+        ssmLogoWrapper.setAttribute('data-active', `${isActive}`);
       });
     }
   }
