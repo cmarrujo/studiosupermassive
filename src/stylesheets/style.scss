@@ -77,6 +77,10 @@
 
     &[data-active='true'] {
       left: 15%;
+
+      @media (min-width: 1280px) {
+        left: 10%;
+      }
     }
   }
 
@@ -597,10 +601,15 @@
         padding: 80px;
       }
       
+      @media (min-width: 1280px) {
+        font-size: 16px;
+        padding: 25px 50px;
+      }
+      
       @media (min-width: 1440px) {
         margin: auto;
-        padding: 250px 80px;
-        width: 70%;
+        padding: 50px 80px;
+        width: 80%;
       }
       
       @media (min-width: 1920px) {
@@ -691,6 +700,10 @@
 
       @media (min-width: 768px) {
         padding: 80px;
+      }
+      
+      @media (min-width: 1280px) {
+        padding: 0;
       }
 
       @media (min-width: 1440px) {
