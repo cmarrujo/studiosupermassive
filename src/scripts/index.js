@@ -221,8 +221,8 @@ class StudioSupermassive {
 
     if(slideout && slideoutToggle) {
       slideoutToggle.addEventListener('click', (e) => {
-        console.log('click');
         const isActive = (qs('.ssm-slideout').getAttribute('data-active') === 'false') ? 'true' : 'false';
+        slideoutToggle.setAttribute('data-active', `${isActive}`);
         slideout.setAttribute('data-active', `${isActive}`);
         ssmLogoWrapper.setAttribute('data-active', `${isActive}`);
       });
