@@ -217,6 +217,7 @@ class StudioSupermassive {
 
   superMassiveMenu = () => {
     const menuContent = qs('.ssm-slideout--content');
+    const menuContentBack = qs('.ssm-controls--back');
     const menuLinks = qsa('.ssm-slideout--navigation--menu_link');
     const hiddenElements = qsa('[aria-hidden]');
     
@@ -228,6 +229,10 @@ class StudioSupermassive {
           if (menuContent.hasAttribute('data-active')) {
             menuContent.setAttribute('data-active', 'true');
           }
+         
+          if (menuContentBack.hasAttribute('data-active')) {
+            menuContentBack.setAttribute('data-active', 'true');
+          }
           
           hiddenElements.forEach((el) => {
             if (el.hasAttribute('aria-hidden')) {
@@ -236,6 +241,25 @@ class StudioSupermassive {
           });
         });
       })
+    }
+
+    if(menuContentBack) {
+      const menuContent = qs('.ssm-slideout--content');
+      const hiddenElements = qsa('[aria-hidden]');
+
+      menuContentBack.addEventListener('click', (e) => {
+        if (menuContent && menuContent.getAttribute('data-active') === 'true') {
+          menuContent.setAttribute('data-active', 'false');
+
+          if (hiddenElements.length) {
+            hiddenElements.forEach((el) => {
+              if (el.hasAttribute('aria-hidden')) {
+                el.setAttribute('aria-hidden', 'false');
+              }
+            });
+          }
+        }
+      });
     }
   }
 

@@ -137,6 +137,19 @@
       }
     }
 
+    &--back {
+      color: $ssm-lightest;
+      opacity: 0;
+      height: 25px;
+      position: absolute;
+      top: 30px;
+      width: 20px;
+
+      &[data-active="true"] {
+        opacity: 1;
+      }
+    }
+
     &--audio {
       fill: $ssm-lightest;
       float: left;
