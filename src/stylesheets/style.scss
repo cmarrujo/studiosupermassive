@@ -524,6 +524,14 @@
     }
   }
 
+  &--label {
+    @include Europa-Regular;
+    color: $ssm-lightest;
+    font-size: 10px;
+    margin: 0;
+    padding: 5px 0;
+  }
+
   &-slideout {
     @include Fira-Mono-OT-Regular;
     background: $ssm-key;
@@ -543,14 +551,12 @@
       border-left: thin solid $ssm-darker;
       height: 50vh;
       margin-left: 50px;
+      overflow: hidden;
       padding: 40px 35px;
+      transition: all .25s ease-out;
 
-      &--label {
-        @include Europa-Regular;
-        color: $ssm-lightest;
-        font-size: 10px;
-        margin: 0;
-        padding: 5px 0;
+      &[aria-hidden='true'] {
+        margin-top: -50vh;
       }
 
       &--menu {
@@ -572,12 +578,36 @@
       }
     }
 
+    &--content {
+      background: $ssm-key;
+      border: thin solid $ssm-darker;
+      height: 0;
+      margin-left: 50px;
+      position: absolute;
+      overflow: hidden;
+      padding: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all .25s ease-out;
+      width: 100%;
+
+      &[data-active='true'] {
+        padding: 40px 35px;
+        height: 100vh;
+      }
+    }
+
     &--mission {
       height: 50vh;
       padding: 0 20px 0 35px;
       border: thin solid $ssm-darker;
       border-top: thin solid $ssm-darker;
       margin-left: 50px;
+      transition: all .25s ease-out;
+
+      &[aria-hidden='true'] {
+        margin-top: 100vh;
+      }
 
       &_statement {
           @include Europa-Bold;

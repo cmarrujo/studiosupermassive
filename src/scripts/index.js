@@ -9,6 +9,7 @@ class StudioSupermassive {
     this.superMassiveIntro();
     // this.superMassiveParallax();
     // this.superMassiveGlitch();
+    this.superMassiveMenu();
     this.superMassiveForm();
   }
 
@@ -214,17 +215,47 @@ class StudioSupermassive {
     });
   }
 
+  superMassiveMenu = () => {
+    const menuContent = qs('.ssm-slideout--content');
+    const menuLinks = qsa('.ssm-slideout--navigation--menu_link');
+    const hiddenElements = qsa('[aria-hidden]');
+    
+    if (menuLinks.length && menuContent && hiddenElements.length) {
+      menuLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          
+          if (menuContent.hasAttribute('data-active')) {
+            menuContent.setAttribute('data-active', 'true');
+          }
+          
+          hiddenElements.forEach((el) => {
+            if (el.hasAttribute('aria-hidden')) {
+              el.setAttribute('aria-hidden', 'true');
+            }
+          });
+        });
+      })
+    }
+  }
+
   superMassiveForm = () => {
     const slideout = qs('.ssm-slideout');
     const slideoutToggle = qs('.ssm-controls--menu');
     const ssmLogoWrapper = qs('.ssm-logo--wrapper');
+    const hiddenElements = qsa('[aria-hidden]');
 
-    if(slideout && slideoutToggle) {
+    if(slideout && slideoutToggle && hiddenElements.length) {
       slideoutToggle.addEventListener('click', (e) => {
         const isActive = (qs('.ssm-slideout').getAttribute('data-active') === 'false') ? 'true' : 'false';
         slideoutToggle.setAttribute('data-active', `${isActive}`);
         slideout.setAttribute('data-active', `${isActive}`);
         ssmLogoWrapper.setAttribute('data-active', `${isActive}`);
+        hiddenElements.forEach((el) => {
+          if (el.hasAttribute('aria-hidden')) {
+            el.setAttribute('aria-hidden', `${!isActive}`);
+          }
+        });
       });
     }
   }
