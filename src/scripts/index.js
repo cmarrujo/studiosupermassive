@@ -272,9 +272,30 @@ class StudioSupermassive {
     if(slideout && slideoutToggle && hiddenElements.length) {
       slideoutToggle.addEventListener('click', (e) => {
         const isActive = (qs('.ssm-slideout').getAttribute('data-active') === 'false') ? 'true' : 'false';
+        const menuContentBack = qs('.ssm-controls--back');
+        const menuContent = qs('.ssm-slideout--content');
+        const plugins = [ CSSPlugin, AttrPlugin ];
+        const timeline = new TimelineLite();
+
         slideoutToggle.setAttribute('data-active', `${isActive}`);
         slideout.setAttribute('data-active', `${isActive}`);
         ssmLogoWrapper.setAttribute('data-active', `${isActive}`);
+
+        if (isActive === 'false') {
+          menuContentBack.setAttribute('data-active', `false`);
+          menuContent.setAttribute('data-active', `false`);
+
+          timeline.to(slideout, 1, {
+            ease: Power4.easeOut,
+            bottom: '-100%',
+          })
+        } else {
+          timeline.to(slideout, 1, {
+            ease: Power4.easeOut,
+            bottom: '0',
+          })
+        }
+
         hiddenElements.forEach((el) => {
           if (el.hasAttribute('aria-hidden')) {
             el.setAttribute('aria-hidden', `${!isActive}`);

@@ -543,6 +543,18 @@
     font-size: 10px;
     margin: 0;
     padding: 5px 0;
+
+    &.content {
+      padding: 10px 30px;
+    }
+  }
+  
+  &--copy {
+    @include Europa-Bold;
+    color: $ssm-lightest;
+    font-size: 24px;
+    margin: 0;
+    padding: 10px 30px;
   }
 
   &-slideout {
@@ -552,12 +564,12 @@
     height: 100vh;
     left: 0;
     position: absolute;
-    transition: all .25s ease-out;
+    // transition: all .35s ease-out;
     width: 100vw;
     z-index: 99;
 
     &[data-active='true'] {
-      bottom: 0;
+      // bottom: 0;
     }
 
     &--navigation {
@@ -566,7 +578,7 @@
       margin-left: 50px;
       overflow: hidden;
       padding: 40px 35px;
-      transition: all .25s ease-out;
+      transition: all .35s ease-out;
 
       &[aria-hidden='true'] {
         margin-top: -50vh;
@@ -601,11 +613,39 @@
       padding: 0;
       top: 50%;
       transform: translateY(-50%);
-      transition: all .25s ease-out;
-      width: 100%;
+      transition: all .35s ease-out;
+      width: 85%;
 
       &[data-active='true'] {
-        padding: 40px 35px;
+        height: 100vh;
+      }
+
+      &_details-wrapper {
+        &[data-section='mission'] {
+          margin-top: 0;
+        }
+        
+        &[data-section='about'] {
+          margin-top: -100vh;
+        }
+        
+        &[data-section='what'] {
+          margin-top: -200vh;
+        }
+        
+        &[data-section='team'] {
+          margin-top: -300vh;
+        }
+        
+        &[data-section='contact'] {
+          margin-top: -400vh;
+        }
+      }
+
+      &_details {
+        border: thin solid red;
+        overflow: hidden;
+        padding-top: 100px;
         height: 100vh;
       }
     }
@@ -616,7 +656,7 @@
       border: thin solid $ssm-darker;
       border-top: thin solid $ssm-darker;
       margin-left: 50px;
-      transition: all .25s ease-out;
+      transition: all .35s ease-out;
 
       &[aria-hidden='true'] {
         margin-top: 100vh;
