@@ -556,6 +556,15 @@
     margin: 0;
     padding: 10px 30px;
   }
+  
+  &--subcopy {
+    @include Europa-Regular;
+    color: $ssm-lightest;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 10px 30px;
+  }
 
   &-slideout {
     @include Fira-Mono-OT-Regular;
@@ -643,9 +652,8 @@
       }
 
       &_details {
-        border: thin solid red;
         overflow: hidden;
-        padding-top: 100px;
+        padding-top: 40px;
         height: 100vh;
       }
     }

@@ -13,6 +13,17 @@ class StudioSupermassive {
     this.superMassiveForm();
   }
 
+  superMassiveLock = (link) => {
+    const detailsWrapper = qs('.ssm-slideout--content_details-wrapper');
+    
+    if (link && link.hasAttribute('data-section')) {
+      const section = link.getAttribute('data-section')
+      if (detailsWrapper) {
+        detailsWrapper.setAttribute('data-section', section);
+      }
+    }
+  }
+
   superMassiveIntro = () => {
     const plugins = [ CSSPlugin, AttrPlugin ];
     const timeline = new TimelineLite();
@@ -225,9 +236,10 @@ class StudioSupermassive {
       menuLinks.forEach((link) => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
-          
+
           if (menuContent.hasAttribute('data-active')) {
             menuContent.setAttribute('data-active', 'true');
+            this.superMassiveLock(e.target);
           }
          
           if (menuContentBack.hasAttribute('data-active')) {
@@ -238,7 +250,7 @@ class StudioSupermassive {
             if (el.hasAttribute('aria-hidden')) {
               el.setAttribute('aria-hidden', 'true');
             }
-          });
+          });          
         });
       })
     }
