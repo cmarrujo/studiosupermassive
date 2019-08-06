@@ -45,7 +45,7 @@
       flex-direction: column;
       position: absolute;
       left: 50%;
-      top: 70%;
+      top: 50%;
       transform: translate(-50%, -50%);
       transition: all .25s ease-out;
       width: 100%;
@@ -92,6 +92,10 @@
     transform: translateX(-50%);
     width: 90%;
     z-index: 100;
+
+    @media (min-width: 768px) {
+      top: 50px;
+    }
 
     &::after {
       content: '';
@@ -235,15 +239,15 @@
 
       @media (min-width: 568px) {
         bottom: auto;
-        left: 55%;
+        left: 50%;
         position: absolute;
-        top: 44%;
+        top: 45%;
         transform: translate(-50%, -50%);
         width: 10%;
       }
       
       @media (min-width: 768px) {
-        top: 30%;
+        top: 50%;
         width: 10%;
       }
       
@@ -410,12 +414,12 @@
 
     @media (min-width: 568px) {
       padding: 0;
-      width: 50%;
+      width: 100%;
     }
 
-    @media (min-width: 768px) {
-      padding: 35px 350px 20px 80px;
-    }
+    // @media (min-width: 768px) {
+    //   padding: 0;
+    // }
     
     @media (min-width: 769px) {
       padding: 0;
@@ -591,6 +595,10 @@
       padding: 40px 35px;
       transition: all .35s ease-out;
 
+      @media (min-width: 768px) {
+        margin-left: 75px;
+      }
+
       &[aria-hidden='true'] {
         margin-top: -50vh;
       }
@@ -601,6 +609,10 @@
         font-size: 24px;
         margin: 0;
         padding: 0;
+
+        @media (min-width: 768px) {
+          font-size: 50px;
+        }
 
         &_link {
           @include Europa-Bold;
@@ -626,6 +638,11 @@
       transform: translateY(-50%);
       transition: all .35s ease-out;
       width: 85%;
+
+      @media (min-width: 768px) {
+        margin-left: 75px;
+        width: 90%;
+      }
 
       &[data-active='true'] {
         height: 100vh;
@@ -704,6 +721,10 @@
       margin-left: 50px;
       transition: all .35s ease-out;
 
+      @media (min-width: 768px) {
+        margin-left: 75px;
+      }
+
       &[aria-hidden='true'] {
         margin-top: 100vh;
       }
@@ -712,6 +733,10 @@
           @include Europa-Bold;
           color: $ssm-lightest;
           font-size: 24px;
+
+          @media (min-width: 768px) {
+            font-size: 50px;
+          }
 
         &-emphasis {
           font-style: italic;
