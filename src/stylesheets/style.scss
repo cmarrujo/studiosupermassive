@@ -29,59 +29,7 @@
   }
 
   &-logo--wrapper {
-    @media (min-width: 568px) {
-      display: flex;
-      flex-direction: row;
-      height: 100%;
-      position: absolute;
-      left: 50%;
-      top: 48%;
-      transform: translate(-50%, -50%);
-      transition: all .25s ease-out;
-      width: 100%;
-    }
     
-    @media (min-width: 768px) {
-      flex-direction: column;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      transition: all .25s ease-out;
-      width: 100%;
-    }
-    
-    @media (min-width: 769px) {
-      display: flex;
-      flex-direction: row;
-      height: 100%;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      transition: all .25s ease-out;
-      width: 100%;
-    }
-    
-    @media (min-width: 1440px) {
-      display: flex;
-      flex-direction: row;
-      height: 100%;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      transition: all .25s ease-out;
-      width: 100%;
-    }
-
-    &[data-active='true'] {
-      left: 15%;
-
-      @media (min-width: 1280px) {
-        left: 10%;
-      }
-    }
   }
 
   &-controls {
@@ -95,6 +43,14 @@
 
     @media (min-width: 768px) {
       top: 50px;
+      width: 92%;
+    }
+    
+    @media (min-width: 1024px) {
+      height: 90vh;
+      top: 40px;
+      left: 95%;
+      width: 3%;
     }
 
     &::after {
@@ -107,6 +63,11 @@
       height: 15px;
       float: right;
       width: 17px;
+
+      @media (min-width: 768px) {
+        height: 20px;
+        width: 25px;
+      }
 
       &[data-active='true'] {
         bottom: 0;
@@ -136,6 +97,11 @@
         transition: all .25s ease-out;
         width: 100%;
 
+        @media (min-width: 768px) {
+          height: 3px;
+          margin: 5px 0;
+        }
+
         &:first-child {
           margin: 0;
         }
@@ -150,6 +116,11 @@
       top: 30px;
       width: 20px;
 
+      @media (min-width: 768px) {
+        font-size: 20px;
+        top: 40px;
+      }
+
       &[data-active="true"] {
         opacity: 1;
       }
@@ -162,6 +133,13 @@
       position: relative;
       width: 20px;
 
+      @media (min-width: 1024px) {
+        top: 50%;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
       &_play {
         background: transparent;
         border-left: 17px solid white;
@@ -173,6 +151,10 @@
         top: 50%;
         transform: translate(-50%, -50%);
         width: 0;
+
+        @media (min-width: 768px) {
+          border-left: 20px solid white;
+        }
       }
       
       &_play-cutout {
@@ -187,6 +169,10 @@
         transform: translate(-50%, -50%);
         width: 0;
         z-index: 1;
+
+        @media (min-width: 768px) {
+          border-left: 12px solid black;
+        }
       }
     }
   }
@@ -216,7 +202,9 @@
     
     @media (min-width: 769px) {
       margin: 0;
+      min-height: 50vh;
       padding-top: 0;
+      top: 45%;
       width: 60%;
     }
     
@@ -253,7 +241,7 @@
       
       @media (min-width: 769px) {
         bottom: auto;
-        left: 55%;
+        left: 50%;
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
@@ -549,8 +537,16 @@
     margin: 0;
     padding: 5px 0;
 
+    @media (min-width: 768px) {
+      font-size: 14px;
+    }
+
     &.content {
       padding: 10px 30px 0 30px;
+
+      @media (min-width: 768px) {
+        padding: 160px 30px 0 60px;
+      }
     }
   }
   
@@ -561,6 +557,11 @@
     line-height: 1.25;
     margin: 0;
     padding: 10px 30px;
+
+    @media (min-width: 768px) {
+      font-size: 36px;
+      padding: 10px 60px 10px 60px;
+    }
   }
   
   &--subcopy {
@@ -570,6 +571,11 @@
     line-height: 1.5;
     margin: 0;
     padding: 10px 30px;
+
+    @media (min-width: 768px) {
+      font-size: 18px;
+      padding: 10px 90px 10px 60px;
+    }
   }
 
   &-slideout {
@@ -579,13 +585,8 @@
     height: 100vh;
     left: 0;
     position: absolute;
-    // transition: all .35s ease-out;
     width: 100vw;
     z-index: 99;
-
-    &[data-active='true'] {
-      // bottom: 0;
-    }
 
     &--navigation {
       border-left: thin solid $ssm-darker;
@@ -641,7 +642,7 @@
 
       @media (min-width: 768px) {
         margin-left: 75px;
-        width: 90%;
+        width: 95%;
       }
 
       &[data-active='true'] {
