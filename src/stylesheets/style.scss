@@ -29,7 +29,11 @@
   }
 
   &-logo--wrapper {
-    
+    &[data-active='true'] {
+      .ssm-logo {
+        left: -5%;
+      }
+    }
   }
 
   &-controls {
@@ -184,6 +188,7 @@
     position: absolute;
     top: 40%;
     transform: translate(-50%, -50%);
+    transition: all .40s ease-out;
     width: 85%;
     
     @media (min-width: 568px) {
@@ -443,27 +448,9 @@
       }
 
       @media (min-width: 769px) {
-        font-size: 24px;
+        font-size: 12px;
         line-height: 1;
         margin: 0 0 15px 0;
-      }
-      
-      @media (min-width: 1440px) {
-        font-size: 30px;
-        line-height: 1.25;
-        margin: 0 0 15px 0;
-      }
-      
-      @media (min-width: 1920px) {
-        font-size: 38px;
-        line-height: 1.15;
-        margin: 0 0 20px 0;
-      }
-      
-      @media (min-width: 2560px) {
-        font-size: 50px;
-        line-height: 1.25;
-        margin: 0 0 30px 0;
       }
     }
   }
@@ -588,6 +575,12 @@
     width: 100vw;
     z-index: 99;
 
+    @media (min-width: 1024px) {
+      bottom: 0;
+      left: 100%;
+      width: 70vw;
+    }
+
     &--navigation {
       border-left: thin solid $ssm-darker;
       height: 50vh;
@@ -598,6 +591,15 @@
 
       @media (min-width: 768px) {
         margin-left: 75px;
+      }
+      
+      @media (min-width: 1024px) {
+        height: 100vh;
+        margin-left: 0;
+        padding: 40px 80px;
+        position: absolute;
+        left: 0;
+        width: 35vw;
       }
 
       &[aria-hidden='true'] {
@@ -613,6 +615,10 @@
 
         @media (min-width: 768px) {
           font-size: 50px;
+        }
+        
+        @media (min-width: 1024px) {
+          font-size: 34px;
         }
 
         &_link {
@@ -643,6 +649,11 @@
       @media (min-width: 768px) {
         margin-left: 75px;
         width: 95%;
+      }
+      
+      @media (min-width: 1024px) {
+        margin-left: 0;
+        width: 0;
       }
 
       &[data-active='true'] {
@@ -725,6 +736,15 @@
       @media (min-width: 768px) {
         margin-left: 75px;
       }
+      
+      @media (min-width: 1024px) {
+        height: 100vh;
+        margin-left: 0;
+        padding: 0 80px;
+        position: absolute;
+        right: 0;
+        width: 35vw;
+      }
 
       &[aria-hidden='true'] {
         margin-top: 100vh;
@@ -737,6 +757,10 @@
 
           @media (min-width: 768px) {
             font-size: 50px;
+          }
+          
+          @media (min-width: 1024px) {
+            font-size: 34px;
           }
 
         &-emphasis {

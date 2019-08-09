@@ -275,6 +275,10 @@ class StudioSupermassive {
     }
   }
 
+  superMassiveWindow = () => {
+    return window.innerWidth;;
+  }
+
   superMassiveForm = () => {
     const slideout = qs('.ssm-slideout');
     const slideoutToggle = qs('.ssm-controls--menu');
@@ -293,19 +297,38 @@ class StudioSupermassive {
         slideout.setAttribute('data-active', `${isActive}`);
         ssmLogoWrapper.setAttribute('data-active', `${isActive}`);
 
-        if (isActive === 'false') {
-          menuContentBack.setAttribute('data-active', `false`);
-          menuContent.setAttribute('data-active', `false`);
+        const innerWidth = this.superMassiveWindow();
 
-          timeline.to(slideout, 1, {
-            ease: Power4.easeOut,
-            bottom: '-100%',
-          })
-        } else {
-          timeline.to(slideout, 1, {
-            ease: Power4.easeOut,
-            bottom: '0',
-          })
+        if(innerWidth >= 320 && innerWidth < 1024) {
+          if (isActive === 'false') {
+            menuContentBack.setAttribute('data-active', `false`);
+            menuContent.setAttribute('data-active', `false`);
+  
+            timeline.to(slideout, 1, {
+              ease: Power4.easeOut,
+              bottom: '-100%',
+            })
+          } else {
+            timeline.to(slideout, 1, {
+              ease: Power4.easeOut,
+              bottom: '0',
+            })
+          }
+        }else if(innerWidth >= 1024) {
+          if (isActive === 'false') {
+            menuContentBack.setAttribute('data-active', `false`);
+            menuContent.setAttribute('data-active', `false`);
+  
+            timeline.to(slideout, 1, {
+              ease: Power4.easeOut,
+              left: '100%',
+            })
+          } else {
+            timeline.to(slideout, 1, {
+              ease: Power4.easeOut,
+              left: '30vw',
+            })
+          }
         }
 
         hiddenElements.forEach((el) => {
