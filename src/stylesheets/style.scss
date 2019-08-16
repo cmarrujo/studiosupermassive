@@ -582,6 +582,7 @@
     }
 
     &--navigation {
+      background: $ssm-key;
       border-left: thin solid $ssm-darker;
       height: 50vh;
       margin-left: 50px;
@@ -604,6 +605,11 @@
 
       &[aria-hidden='true'] {
         margin-top: -50vh;
+
+        @media (min-width: 1024px) {
+          margin-left: -40vh;
+          margin-top: 0;
+        }
       }
 
       &--menu {
@@ -652,12 +658,19 @@
       }
       
       @media (min-width: 1024px) {
+        left: 50%;
         margin-left: 0;
+        height: 100vh;
         width: 0;
       }
 
       &[data-active='true'] {
         height: 100vh;
+
+        @media (min-width: 1024px) {
+          left: 0;
+          width: 35vw;
+        }
       }
 
       &_details-wrapper {
@@ -748,6 +761,10 @@
 
       &[aria-hidden='true'] {
         margin-top: 100vh;
+
+        @media (min-width: 1024px) {
+          margin-top: 0;
+        }
       }
 
       &_statement {
