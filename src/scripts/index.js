@@ -228,7 +228,7 @@ class StudioSupermassive {
 
   superMassiveMenu = () => {
     const menuContent = qs('.ssm-slideout--content');
-    const menuContentBack = qs('.ssm-controls--back');
+    const menuControlBack = qs('.ssm-controls--back');
     const menuLinks = qsa('.ssm-slideout--navigation--menu_link');
     const hiddenElements = qsa('[aria-hidden]');
     
@@ -242,8 +242,8 @@ class StudioSupermassive {
             this.superMassiveLock(e.target);
           }
          
-          if (menuContentBack.hasAttribute('data-active')) {
-            menuContentBack.setAttribute('data-active', 'true');
+          if (menuControlBack.hasAttribute('data-active')) {
+            menuControlBack.setAttribute('data-active', 'true');
           }
           
           hiddenElements.forEach((el) => {
@@ -255,11 +255,11 @@ class StudioSupermassive {
       })
     }
 
-    if(menuContentBack) {
+    if(menuControlBack) {
       const menuContent = qs('.ssm-slideout--content');
       const hiddenElements = qsa('[aria-hidden]');
 
-      menuContentBack.addEventListener('click', (e) => {
+      menuControlBack.addEventListener('click', (e) => {
         if (menuContent && menuContent.getAttribute('data-active') === 'true') {
           menuContent.setAttribute('data-active', 'false');
 
@@ -295,11 +295,60 @@ class StudioSupermassive {
 
         slideoutToggle.setAttribute('data-active', `${isActive}`);
         slideout.setAttribute('data-active', `${isActive}`);
-        // ssmLogoWrapper.setAttribute('data-active', `${isActive}`);
 
         const innerWidth = this.superMassiveWindow();
 
-        if(innerWidth >= 320 && innerWidth < 1024) {
+        if (innerWidth >= 1440) {
+          if (isActive === 'false') {
+            menuContentBack.setAttribute('data-active', `false`);
+            menuContent.setAttribute('data-active', `false`);
+  
+            timeline.to(slideout, .85, {
+              ease: Power4.easeOut,
+              left: '100%',
+            });
+
+            timeline.to(ssmLogoWrapper, .25, {
+              ease: Power4.easeOut,
+              left: '50%',
+            }, '-=1.1')
+          } else {
+            timeline.to(slideout, .85, {
+              ease: Power4.easeOut,
+              left: '50%',
+            });
+
+            timeline.to(ssmLogoWrapper, .25, {
+              ease: Power4.easeOut,
+              left: '15%',
+            }, '-=1.1')
+          }
+        } else if(innerWidth >= 1024) {
+          if (isActive === 'false') {
+            menuContentBack.setAttribute('data-active', `false`);
+            menuContent.setAttribute('data-active', `false`);
+  
+            timeline.to(slideout, .85, {
+              ease: Power4.easeOut,
+              left: '100%',
+            });
+
+            timeline.to(ssmLogoWrapper, .25, {
+              ease: Power4.easeOut,
+              left: '50%',
+            }, '-=1.1')
+          } else {
+            timeline.to(slideout, .85, {
+              ease: Power4.easeOut,
+              left: '30%',
+            });
+
+            timeline.to(ssmLogoWrapper, .25, {
+              ease: Power4.easeOut,
+              left: '-4%',
+            }, '-=1.1')
+          }
+        } else if (innerWidth >= 320 && innerWidth < 1024) {
           if (isActive === 'false') {
             menuContentBack.setAttribute('data-active', `false`);
             menuContent.setAttribute('data-active', `false`);
@@ -313,31 +362,6 @@ class StudioSupermassive {
               ease: Power4.easeOut,
               bottom: '0',
             })
-          }
-        }else if(innerWidth >= 1024) {
-          if (isActive === 'false') {
-            menuContentBack.setAttribute('data-active', `false`);
-            menuContent.setAttribute('data-active', `false`);
-  
-            timeline.to(slideout, .85, {
-              ease: Power4.easeOut,
-              left: '100%',
-            });
-
-            timeline.to(ssmLogoWrapper, .25, {
-              ease: Power4.easeOut,
-              left: '50%',
-            }, '-=1')
-          } else {
-            timeline.to(slideout, .85, {
-              ease: Power4.easeOut,
-              left: '30%',
-            });
-
-            timeline.to(ssmLogoWrapper, .25, {
-              ease: Power4.easeOut,
-              left: '-4%',
-            }, '-=1')
           }
         }
 
