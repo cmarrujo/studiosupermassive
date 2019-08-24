@@ -80,6 +80,10 @@
           &:first-child {
             transform: rotate(45deg);
             transform-origin: 0;
+
+            @media (min-width: 1440px) {
+              transform-origin: 2px;
+            }
           }
           
           &:nth-child(2) {
@@ -622,7 +626,7 @@
         margin-top: -50vh;
 
         @media (min-width: 1024px) {
-          margin-left: -40vw;
+          margin-left: -30vw;
           margin-top: 0;
           width: 30vw;
         }
@@ -651,7 +655,7 @@
         
         @media (min-width: 1440px) {
           line-height: 1.5;
-          font-size: 50px;
+          font-size: 40px;
         }
 
         &_link {
