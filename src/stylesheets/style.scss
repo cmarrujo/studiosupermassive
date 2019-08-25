@@ -740,7 +740,7 @@
       position: absolute;
       transition: all .35s ease-out;
       transform: translateX(-50%);
-      width: 80%;
+      width: 75%;
     }
 
     &--content {
@@ -949,7 +949,7 @@
     &--form {
       color: $ssm-lightest;
       font-size: 10px;
-      margin: 0 0 50px 0;
+      margin: 0;
       padding: 0;
       width: 100%;
 

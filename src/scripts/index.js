@@ -295,14 +295,27 @@ class StudioSupermassive {
 
     actionButton.addEventListener('click', (e) => {
       e.preventDefault();
-      console.log('click');
+      
       if(navigation && mission) {
         navigation.setAttribute('data-active', 'true');
         navigation.setAttribute('aria-hidden', 'true');
         mission.setAttribute('data-active', 'true');
         content.setAttribute('data-disabled', 'true');
+
+        const positionMarkers = qsa('.ssm-slideout--position_marker');
+        positionMarkers.forEach((marker) => {
+          marker.setAttribute('data-current', 'false');  
+        });
+        positionMarkers[4].setAttribute('data-current', 'true');
       }
     });
+  }
+
+  resetMenuBackControl = () => {
+    const menuContentBack = qs('.ssm-controls--back');
+    const menuContent = qs('.ssm-slideout--content');
+    menuContentBack.setAttribute('data-active', `false`);
+    menuContent.setAttribute('data-active', `false`);
   }
 
   superMassiveForm = () => {
@@ -314,8 +327,6 @@ class StudioSupermassive {
     if(slideout && slideoutToggle && hiddenElements.length) {
       slideoutToggle.addEventListener('click', (e) => {
         const isActive = (qs('.ssm-slideout').getAttribute('data-active') === 'false') ? 'true' : 'false';
-        const menuContentBack = qs('.ssm-controls--back');
-        const menuContent = qs('.ssm-slideout--content');
         const plugins = [ CSSPlugin, AttrPlugin ];
         const timeline = new TimelineLite();
 
@@ -329,6 +340,9 @@ class StudioSupermassive {
         });
         positionMarkers[0].setAttribute('data-current', 'true');
 
+        const content = qs('.ssm-slideout--content');
+        content.setAttribute('data-disabled', 'false');
+
         slideoutToggle.setAttribute('data-active', `${isActive}`);
         slideout.setAttribute('data-active', `${isActive}`);
 
@@ -336,8 +350,7 @@ class StudioSupermassive {
 
         if (innerWidth >= 1440) {
           if (isActive === 'false') {
-            menuContentBack.setAttribute('data-active', `false`);
-            menuContent.setAttribute('data-active', `false`);
+            this.resetMenuBackControl();
   
             timeline.to(slideout, .85, {
               ease: Power4.easeOut,
@@ -361,8 +374,7 @@ class StudioSupermassive {
           }
         } else if(innerWidth >= 1024) {
           if (isActive === 'false') {
-            menuContentBack.setAttribute('data-active', `false`);
-            menuContent.setAttribute('data-active', `false`);
+            this.resetMenuBackControl();
   
             timeline.to(slideout, .85, {
               ease: Power4.easeOut,
@@ -386,8 +398,7 @@ class StudioSupermassive {
           }
         } else if (innerWidth >= 320 && innerWidth < 1024) {
           if (isActive === 'false') {
-            menuContentBack.setAttribute('data-active', `false`);
-            menuContent.setAttribute('data-active', `false`);
+            this.resetMenuBackControl();
   
             timeline.to(slideout, 1, {
               ease: Power4.easeOut,
