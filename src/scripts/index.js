@@ -15,9 +15,17 @@ class StudioSupermassive {
 
   superMassiveLock = (link) => {
     const detailsWrapper = qs('.ssm-slideout--content_details-wrapper');
-    
+    const positionMarkers = qsa('.ssm-slideout--position_marker');
+
     if (link && link.hasAttribute('data-section')) {
-      const section = link.getAttribute('data-section')
+      const section = link.getAttribute('data-section');
+      const currentPosition = qs(`.ssm-slideout--position_marker[data-section='${section}']`);
+
+      positionMarkers.forEach((marker) => {
+        marker.setAttribute('data-current', 'false');  
+      });
+      currentPosition.setAttribute('data-current', 'true');
+
       if (detailsWrapper) {
         detailsWrapper.setAttribute('data-section', section);
       }
@@ -236,7 +244,6 @@ class StudioSupermassive {
       menuLinks.forEach((link) => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
-
           if (menuContent.hasAttribute('data-active')) {
             menuContent.setAttribute('data-active', 'true');
             this.superMassiveLock(e.target);
@@ -292,6 +299,13 @@ class StudioSupermassive {
         const menuContent = qs('.ssm-slideout--content');
         const plugins = [ CSSPlugin, AttrPlugin ];
         const timeline = new TimelineLite();
+
+        const positionMarkers = qsa('.ssm-slideout--position_marker');
+
+        positionMarkers.forEach((marker) => {
+          marker.setAttribute('data-current', 'false');  
+        });
+        positionMarkers[0].setAttribute('data-current', 'true');
 
         slideoutToggle.setAttribute('data-active', `${isActive}`);
         slideout.setAttribute('data-active', `${isActive}`);

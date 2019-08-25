@@ -56,6 +56,13 @@
       left: 95%;
       width: 3%;
     }
+    
+    @media (min-width: 1440px) {
+      height: 90vh;
+      top: 40px;
+      left: 97%;
+      width: 3%;
+    }
 
     &::after {
       content: '';
@@ -118,6 +125,7 @@
 
     &--back {
       color: $ssm-lightest;
+      cursor: pointer;
       opacity: 0;
       height: 25px;
       position: absolute;
@@ -162,6 +170,10 @@
 
         @media (min-width: 768px) {
           border-left: 20px solid white;
+        }
+        
+        @media (min-width: 1024px) {
+          display: none;
         }
       }
       
@@ -222,15 +234,13 @@
       width: 65%;
     }
     
-    @media (min-width: 1920px) {
-      width: 100%;
-    }
-
     &--svg {
       bottom: 0;
       cursor: pointer;
       fill: $ssm-lightest;
-      left: 0;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       position: absolute;
       width: 10%;
 
@@ -521,7 +531,11 @@
       }
       
       @media (min-width: 1024px) {
-        padding: 160px 35px 0 35px;
+        padding: 160px 60px 0 60px;
+      }
+      
+      @media (min-width: 1440px) {
+        padding: 160px 160px 0 160px;
       }
     }
   }
@@ -546,7 +560,12 @@
     
     @media (min-width: 1024px) {
       font-size: 36px;
-      padding: 10px 35px 10px 35px;
+      padding: 10px 60px 10px 60px;
+    }
+    
+    @media (min-width: 1024px) {
+      font-size: 36px;
+      padding: 10px 160px 10px 160px;
     }
   }
   
@@ -565,7 +584,12 @@
     
     @media (min-width: 1024px) {
       font-size: 18px;
-      padding: 10px 35px 10px 35px;
+      padding: 10px 60px 10px 60px;
+    }
+    
+    @media (min-width: 1440px) {
+      font-size: 18px;
+      padding: 10px 160px 10px 160px;
     }
   }
 
@@ -589,6 +613,25 @@
       bottom: 0;
       left: 100%;
       width: 50vw;
+    }
+
+    &--position {
+      left: 7%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      &_marker {
+        border-radius: 100%;
+        border: thin solid rgba($ssm-lightest, 1);
+        height: 10px;
+        margin: 10px 0;
+        width: 10px;
+
+        &[data-current="true"] {
+          background: $ssm-lightest;
+        }
+      }
     }
 
     &--navigation {
@@ -617,6 +660,15 @@
         height: 100vh;
         margin-left: 0;
         padding: 150px 50px;
+        position: absolute;
+        left: 0;
+        width: 25vw;
+      }
+      
+      @media (min-width: 1920px) {
+        height: 100vh;
+        margin-left: 0;
+        padding: 150px 100px;
         position: absolute;
         left: 0;
         width: 25vw;
@@ -809,6 +861,15 @@
         height: 100vh;
         margin-left: 0;
         padding: 150px 50px;
+        position: absolute;
+        right: 0;
+        width: 25vw;
+      }
+      
+      @media (min-width: 1920px) {
+        height: 100vh;
+        margin-left: 0;
+        padding: 150px 100px;
         position: absolute;
         right: 0;
         width: 25vw;
