@@ -463,6 +463,17 @@
       font-size: 12px;
       padding: 12px 30px;
       text-decoration: none;
+
+      &-submit {
+        @include Europa-Bold;
+        background: transparent;
+        box-shadow: inset 0 0 0 2px $ssm-lightest;
+        border: none;
+        border-radius: 100px;
+        color: $ssm-lightest;
+        font-size: 12px;
+        padding: 12px 30px;
+      }
     }
 
     &--link {
@@ -722,6 +733,16 @@
       }
     }
 
+    &--contact {
+      height: 50vh;
+      left: 50%;
+      opacity: 0;
+      position: absolute;
+      transition: all .35s ease-out;
+      transform: translateX(-50%);
+      width: 80%;
+    }
+
     &--content {
       background: $ssm-key;
       border: thin solid $ssm-darker;
@@ -745,6 +766,10 @@
         margin-left: 0;
         height: 100vh;
         width: 0;
+      }
+
+      &[data-disabled='true'] {
+        opacity: 0;
       }
 
       &[data-active='true'] {
@@ -842,6 +867,7 @@
       border: thin solid $ssm-darker;
       border-top: thin solid $ssm-darker;
       margin-left: 50px;
+      position: relative;
       transition: all .35s ease-out;
 
       @media (min-width: 768px) {
@@ -873,6 +899,18 @@
         position: absolute;
         right: 0;
         width: 25vw;
+      }
+
+      &[data-active='true'] {
+        height: 100vh;
+
+        .ssm-slideout--contact {
+          opacity: 1;
+        }
+
+        .ssm-action--button {
+          opacity: 0;
+        }
       }
 
       &[aria-hidden='true'] {
@@ -912,7 +950,8 @@
       color: $ssm-lightest;
       font-size: 10px;
       margin: 0 0 50px 0;
-      padding: 25px;
+      padding: 0;
+      width: 100%;
 
       @media (min-width: 768px) {
         font-size: 16px;
@@ -937,7 +976,9 @@
       }
 
       &_prompt {
-        margin: 40px 0;
+        @include Europa-Bold;  
+        font-size: 24px;
+        margin: 10px 0;
 
         &.thankyou_message {
           display: none;
@@ -947,7 +988,7 @@
       &_field-wrapper {
         display: flex;
         flex-grow: 1;
-        margin: 25px 0;
+        margin: 20px 0;
         position: relative;
 
         @media (min-width: 768px) {

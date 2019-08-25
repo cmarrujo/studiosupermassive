@@ -11,6 +11,7 @@ class StudioSupermassive {
     // this.superMassiveGlitch();
     this.superMassiveMenu();
     this.superMassiveForm();
+    this.superMassiveAction();
   }
 
   superMassiveLock = (link) => {
@@ -286,6 +287,24 @@ class StudioSupermassive {
     return window.innerWidth;;
   }
 
+  superMassiveAction = () => {
+    const actionButton = qs('.ssm-action--button');
+    const navigation = qs('.ssm-slideout--navigation');
+    const mission = qs('.ssm-slideout--mission');
+    const content = qs('.ssm-slideout--content');
+
+    actionButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log('click');
+      if(navigation && mission) {
+        navigation.setAttribute('data-active', 'true');
+        navigation.setAttribute('aria-hidden', 'true');
+        mission.setAttribute('data-active', 'true');
+        content.setAttribute('data-disabled', 'true');
+      }
+    });
+  }
+
   superMassiveForm = () => {
     const slideout = qs('.ssm-slideout');
     const slideoutToggle = qs('.ssm-controls--menu');
@@ -301,6 +320,9 @@ class StudioSupermassive {
         const timeline = new TimelineLite();
 
         const positionMarkers = qsa('.ssm-slideout--position_marker');
+
+        const mission = qs('.ssm-slideout--mission');
+        mission.setAttribute('data-active', `${!isActive}`);
 
         positionMarkers.forEach((marker) => {
           marker.setAttribute('data-current', 'false');  

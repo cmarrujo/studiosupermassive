@@ -368,7 +368,7 @@
           </ul>
         </div>
 
-        <div class="ssm-slideout--content" data-active="false">
+        <div class="ssm-slideout--content" aria-hidden="true" data-active="false" data-disabled="false">
           <div class="ssm-slideout--content_details-wrapper" data-section="mission">
             <div class="ssm-slideout--content_details mission">
               <p class="ssm--label content">Our mission:</p>
@@ -411,81 +411,56 @@
           </div>
         </div>
 
-        <div class="ssm-slideout--mission" aria-hidden="false">
+        <div class="ssm-slideout--mission" aria-hidden="false" data-active="false">
           <p class="ssm-slideout--mission_statement">
             You have <span class="ssm-slideout--mission_statement-emphasis">supermassive</span> 
             dreams. It’s time to make them happen.</p>
           <a href="#" class="ssm-action--button">Let's get started</a>
-        </div>
+
+          <div class="ssm-slideout--contact">
+              <form class="gform ssm-slideout--form validate" data-email="cesar@studiosupermassive.com" action="https://script.google.com/macros/s/AKfycbxQP2ss_XT7zL9xtwsoexyYavGqP7zWq1dSlS6D/exec">
+    
+                <p class="ssm-slideout--form_prompt">Lets chat</p>
+    
+                <div class="ssm-slideout--form_field-wrapper">
+                  <div class="ssm-slideout--form_field-insert"></div>
+                  <input class="ssm-slideout--form_name-fld email" type="text" name="name" id="name" placeholder="What should we call you?" />
+                </div>
                 
-         <!--<form class="gform ssm-slideout--form validate" data-email="cesar@studiosupermassive.com" action="https://script.google.com/macros/s/AKfycbxQP2ss_XT7zL9xtwsoexyYavGqP7zWq1dSlS6D/exec">
-
-          <p class="ssm-slideout--form_prompt">lets create something amazing!</p>
-
-          <div class="ssm-slideout--form_field-wrapper">
-            <div class="ssm-slideout--form_field-insert"></div>
-            <input class="ssm-slideout--form_name-fld email" type="text" name="name" id="name" placeholder="Your name" />
-          </div>
-          
-          <div class="ssm-slideout--form_field-wrapper">
-            <div class="ssm-slideout--form_field-insert"></div>
-            <input class="ssm-slideout--form_name-fld email" type="email" name="email" id="email" placeholder="Your email" />
-          </div>
-          
-          <div class="ssm-slideout--form_field-wrapper">
-            <div class="ssm-slideout--form_field-insert"></div>
-            <input class="ssm-slideout--form_name-fld" type="text" name="telephone" id="telephone" placeholder="Your telephone" />
-          </div>
-
-          <div class="ssm-slideout--form_field-wrapper">
-            <div class="ssm-slideout--form_field-insert"></div>
-            <textarea class="ssm-slideout--form_message-fld message" name="message" id="message" placeholder="Your message"></textarea>
-          </div>
-
-          <div class="ssm-slideout--form_field-wrapper">
-            <div class="ssm-action">
-              <input type="submit" value="< submit >" class="ssm-action--link" >
+                <div class="ssm-slideout--form_field-wrapper">
+                  <div class="ssm-slideout--form_field-insert"></div>
+                  <input class="ssm-slideout--form_name-fld email" type="email" name="email" id="email" placeholder="Where should we send you stuff?" />
+                </div>
+                
+                <!-- <div class="ssm-slideout--form_field-wrapper">
+                  <div class="ssm-slideout--form_field-insert"></div>
+                  <input class="ssm-slideout--form_name-fld" type="text" name="telephone" id="telephone" placeholder="Your telephone" />
+                </div> -->
+    
+                <div class="ssm-slideout--form_field-wrapper">
+                  <div class="ssm-slideout--form_field-insert"></div>
+                  <textarea class="ssm-slideout--form_message-fld message" name="message" id="message" placeholder="Tell us about your project"></textarea>
+                </div>
+    
+                <div class="ssm-slideout--form_field-wrapper">
+                  <div class="ssm-action">
+                    <input type="submit" value="Send message" class="ssm-action--button-submit" />
+                  </div>
+                </div>
+    
+                <fieldset class="ssm-slideout--form_field-wrapper honeypot-field">
+                  <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
+                  <input id="honeypot" type="text" name="honeypot" value="" />
+                </fieldset>
+    
+                <p class="ssm-slideout--form_prompt thankyou_message">Thanks! for your inquiry! We will be in touch very soon!</p>
+    
+              </form>
+    
             </div>
-          </div>
-
-          <fieldset class="ssm-slideout--form_field-wrapper honeypot-field">
-            <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
-            <input id="honeypot" type="text" name="honeypot" value="" />
-          </fieldset>
-
-          <p class="ssm-slideout--form_prompt thankyou_message">Thanks! for your inquiry! We will be in touch very soon!</p>
-
-        </form>
-
-        <div class="ssm-slideout--social">
-
-          <p class="ssm-slideout--social_header">for all inquiries:</p>
-            
-          <div class="ssm-action">
-            <a href="mailto:inquire@studiosupermassive.com" class="ssm-action--link"><span class="ssm-action--link_text">inquire@studiosupermassive.com </span></a>
-          </div>
-
-          <div class="ssm-action">
-            <a href="tel:7142026118" class="ssm-action--link"><span class="ssm-action--link_text">714 202 - 6118</span></a>
-          </div>
-
-        </div>
-       
-        <div class="ssm-slideout--social">
-
-          <p class="ssm-slideout--social_header">follow us on social media:</p>
-          
-          <div class="ssm-action">
-            <a href="https://www.instagram.com/studiosupermassive/" class="ssm-action--link" data-action-type="instagram">&lt; <span class="ssm-action--link_text">instagram</span> &gt;</a>
-          </div>
-
-          <div class="ssm-action">
-            <a href="https://www.twitter.com/studiosupermassive/" class="ssm-action--link" data-action-type="twitter">&lt; <span class="ssm-action--link_text">twitter</span> &gt;</a>
-          </div>
-
         </div>
 
-      </div>-->
+      </div>
 
     </div>
 
