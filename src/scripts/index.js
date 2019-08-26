@@ -245,22 +245,62 @@ class StudioSupermassive {
       menuLinks.forEach((link) => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
-          if (menuContent.hasAttribute('data-active')) {
-            menuContent.setAttribute('data-active', 'true');
-            this.superMassiveLock(e.target);
-          }
-         
-          if (menuControlBack.hasAttribute('data-active')) {
-            menuControlBack.setAttribute('data-active', 'true');
-          }
+          if(e.target.getAttribute('data-section') === 'contact') {
+            const navigation = qs('.ssm-slideout--navigation');
+            const mission = qs('.ssm-slideout--mission');
+            const content = qs('.ssm-slideout--content');
+
+            if(navigation && mission && content) {
+              navigation.setAttribute('aria-hidden', 'true');
+              mission.setAttribute('data-active', 'true');
+              content.setAttribute('data-disabled', 'true');
+              menuControlBack.setAttribute('data-active', 'true');
+
+              const positionMarkers = qsa('.ssm-slideout--position_marker');
+              positionMarkers.forEach((marker) => {
+                marker.setAttribute('data-current', 'false');  
+              });
+              positionMarkers[4].setAttribute('data-current', 'true');
+              
+              if(menuControlBack) {
+                const menuContent = qs('.ssm-slideout--content');
+                const hiddenElements = qsa('[aria-hidden]');
           
-          hiddenElements.forEach((el) => {
-            if (el.hasAttribute('aria-hidden')) {
-              el.setAttribute('aria-hidden', 'true');
+                menuControlBack.addEventListener('click', (e) => {
+                  if (menuContent && menuContent.getAttribute('data-active') === 'true' || menuContent.getAttribute('data-disabled') === 'true') {
+                    menuContent.setAttribute('data-active', 'false');
+                    menuContent.setAttribute('data-disabled', 'false');
+                    mission.setAttribute('data-active', 'false');
+          
+                    if (hiddenElements.length) {
+                      hiddenElements.forEach((el) => {
+                        if (el.hasAttribute('aria-hidden')) {
+                          el.setAttribute('aria-hidden', 'false');
+                        }
+                      });
+                    }
+                  }
+                });
+              }
             }
-          });          
+          } else {
+            if (menuContent.hasAttribute('data-active')) {
+              menuContent.setAttribute('data-active', 'true');
+              this.superMassiveLock(e.target);
+            }
+           
+            if (menuControlBack.hasAttribute('data-active')) {
+              menuControlBack.setAttribute('data-active', 'true');
+            }
+            
+            hiddenElements.forEach((el) => {
+              if (el.hasAttribute('aria-hidden')) {
+                el.setAttribute('aria-hidden', 'true');
+              }
+            }); 
+          }        
         });
-      })
+      });
     }
 
     if(menuControlBack) {
@@ -284,7 +324,7 @@ class StudioSupermassive {
   }
 
   superMassiveWindow = () => {
-    return window.innerWidth;;
+    return window.innerWidth;
   }
 
   superMassiveAction = () => {
@@ -307,6 +347,30 @@ class StudioSupermassive {
           marker.setAttribute('data-current', 'false');  
         });
         positionMarkers[4].setAttribute('data-current', 'true');
+
+        const menuControlBack = qs('.ssm-controls--back');
+        menuControlBack.setAttribute('data-active', 'true');
+
+        if(menuControlBack) {
+          const menuContent = qs('.ssm-slideout--content');
+          const hiddenElements = qsa('[aria-hidden]');
+    
+          menuControlBack.addEventListener('click', (e) => {
+            if (menuContent && menuContent.getAttribute('data-active') === 'true' || menuContent.getAttribute('data-disabled') === 'true') {
+              menuContent.setAttribute('data-active', 'false');
+              menuContent.setAttribute('data-disabled', 'false');
+              mission.setAttribute('data-active', 'false');
+    
+              if (hiddenElements.length) {
+                hiddenElements.forEach((el) => {
+                  if (el.hasAttribute('aria-hidden')) {
+                    el.setAttribute('aria-hidden', 'false');
+                  }
+                });
+              }
+            }
+          });
+        }
       }
     });
   }
@@ -316,6 +380,14 @@ class StudioSupermassive {
     const menuContent = qs('.ssm-slideout--content');
     menuContentBack.setAttribute('data-active', `false`);
     menuContent.setAttribute('data-active', `false`);
+  }
+  
+  resetPositionMarkers = () => {
+    const positionMarkers = qsa('.ssm-slideout--position_marker');
+    positionMarkers.forEach((marker) => {
+      marker.setAttribute('data-current', 'false');  
+    });
+    positionMarkers[0].setAttribute('data-current', 'true');
   }
 
   superMassiveForm = () => {
@@ -330,15 +402,8 @@ class StudioSupermassive {
         const plugins = [ CSSPlugin, AttrPlugin ];
         const timeline = new TimelineLite();
 
-        const positionMarkers = qsa('.ssm-slideout--position_marker');
-
         const mission = qs('.ssm-slideout--mission');
         mission.setAttribute('data-active', `${!isActive}`);
-
-        positionMarkers.forEach((marker) => {
-          marker.setAttribute('data-current', 'false');  
-        });
-        positionMarkers[0].setAttribute('data-current', 'true');
 
         const content = qs('.ssm-slideout--content');
         content.setAttribute('data-disabled', 'false');
@@ -347,6 +412,29 @@ class StudioSupermassive {
         slideout.setAttribute('data-active', `${isActive}`);
 
         const innerWidth = this.superMassiveWindow();
+
+        this.resetPositionMarkers();
+
+        window.addEventListener('resize', (e) => {
+          const innerWidth = this.superMassiveWindow();
+          if (innerWidth >= 1024) {
+            if (isActive === 'true') {
+              slideout.style.bottom = 'auto';
+              slideout.style.left = '30vw';
+            } else {
+              slideout.style.bottom = 'auto';
+              slideout.style.left = '100%';
+            }
+          } else if (innerWidth >= 768) {
+            if (isActive === 'true') {
+              slideout.style.bottom = '0px';
+              slideout.style.left = 'auto';
+            } else {
+              slideout.style.bottom = '-100%';
+              slideout.style.left = 'auto';
+            }
+          }
+        });
 
         if (innerWidth >= 1440) {
           if (isActive === 'false') {
