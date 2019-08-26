@@ -240,19 +240,24 @@ class StudioSupermassive {
     const menuControlBack = qs('.ssm-controls--back');
     const menuLinks = qsa('.ssm-slideout--navigation--menu_link');
     const hiddenElements = qsa('[aria-hidden]');
+    const navigation = qs('.ssm-slideout--navigation');
+    const mission = qs('.ssm-slideout--mission');
+    const content = qs('.ssm-slideout--content');
+    const timeline = new TimelineLite();
+    const slideout = qs('.ssm-slideout');
     
     if (menuLinks.length && menuContent && hiddenElements.length) {
       menuLinks.forEach((link) => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
           if(e.target.getAttribute('data-section') === 'contact') {
-            const navigation = qs('.ssm-slideout--navigation');
-            const mission = qs('.ssm-slideout--mission');
-            const content = qs('.ssm-slideout--content');
+            console.log('contact');
+            slideout.setAttribute('data-disabled', 'true');
 
             if(navigation && mission && content) {
               navigation.setAttribute('aria-hidden', 'true');
               mission.setAttribute('data-active', 'true');
+              mission.setAttribute('aria-hidden', 'false');
               content.setAttribute('data-disabled', 'true');
               menuControlBack.setAttribute('data-active', 'true');
 
@@ -286,16 +291,22 @@ class StudioSupermassive {
           } else {
             if (menuContent.hasAttribute('data-active')) {
               menuContent.setAttribute('data-active', 'true');
-              this.superMassiveLock(e.target);
+              menuContent.setAttribute('data-disabled', 'false');
+              this.superMassiveLock(e.target);              
             }
+
+            mission.setAttribute('data-active', 'false');
            
             if (menuControlBack.hasAttribute('data-active')) {
               menuControlBack.setAttribute('data-active', 'true');
             }
-            
             hiddenElements.forEach((el) => {
               if (el.hasAttribute('aria-hidden')) {
                 el.setAttribute('aria-hidden', 'true');
+                
+                if (el.hasAttribute('data-disabled')) {
+                  el.hasAttribute('data-disabled', 'false');
+                }
               }
             }); 
           }        
@@ -340,7 +351,10 @@ class StudioSupermassive {
         navigation.setAttribute('data-active', 'true');
         navigation.setAttribute('aria-hidden', 'true');
         mission.setAttribute('data-active', 'true');
+        mission.setAttribute('aria-hidden', 'false');
         content.setAttribute('data-disabled', 'true');
+        content.setAttribute('data-active', 'false');
+        content.setAttribute('aria-hidden', 'true');
 
         const positionMarkers = qsa('.ssm-slideout--position_marker');
         positionMarkers.forEach((marker) => {
