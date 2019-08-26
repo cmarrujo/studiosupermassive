@@ -252,13 +252,12 @@ class StudioSupermassive {
           e.preventDefault();
           if(e.target.getAttribute('data-section') === 'contact') {
             console.log('contact');
-            slideout.setAttribute('data-disabled', 'true');
 
             if(navigation && mission && content) {
               navigation.setAttribute('aria-hidden', 'true');
               mission.setAttribute('data-active', 'true');
               mission.setAttribute('aria-hidden', 'false');
-              content.setAttribute('data-disabled', 'true');
+              // content.setAttribute('data-disabled', 'true');
               menuControlBack.setAttribute('data-active', 'true');
 
               const positionMarkers = qsa('.ssm-slideout--position_marker');
@@ -352,9 +351,6 @@ class StudioSupermassive {
         navigation.setAttribute('aria-hidden', 'true');
         mission.setAttribute('data-active', 'true');
         mission.setAttribute('aria-hidden', 'false');
-        content.setAttribute('data-disabled', 'true');
-        content.setAttribute('data-active', 'false');
-        content.setAttribute('aria-hidden', 'true');
 
         const positionMarkers = qsa('.ssm-slideout--position_marker');
         positionMarkers.forEach((marker) => {
@@ -370,18 +366,14 @@ class StudioSupermassive {
           const hiddenElements = qsa('[aria-hidden]');
     
           menuControlBack.addEventListener('click', (e) => {
-            if (menuContent && menuContent.getAttribute('data-active') === 'true' || menuContent.getAttribute('data-disabled') === 'true') {
-              menuContent.setAttribute('data-active', 'false');
-              menuContent.setAttribute('data-disabled', 'false');
-              mission.setAttribute('data-active', 'false');
-    
-              if (hiddenElements.length) {
-                hiddenElements.forEach((el) => {
-                  if (el.hasAttribute('aria-hidden')) {
-                    el.setAttribute('aria-hidden', 'false');
-                  }
-                });
-              }
+            mission.setAttribute('data-active', 'false');
+  
+            if (hiddenElements.length) {
+              hiddenElements.forEach((el) => {
+                if (el.hasAttribute('aria-hidden')) {
+                  el.setAttribute('aria-hidden', 'false');
+                }
+              });
             }
           });
         }

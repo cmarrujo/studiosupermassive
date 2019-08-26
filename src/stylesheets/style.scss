@@ -949,6 +949,7 @@
         
         @media (min-width: 1440px) {
           width: 75vw;
+          padding: 150px 110px;
         }
 
         .ssm-slideout--contact {
@@ -961,6 +962,10 @@
 
         .ssm-slideout--mission_statement {
           margin: 0 30px 30px 17px;
+
+          @media (min-width: 1440px) {
+            margin: 0 330px 30px 17px;
+          }
         }
       }
 
@@ -975,6 +980,7 @@
         
         @media (min-width: 1440px) {
           margin-top: 0;
+          padding: 150px 50px;
           width: 25vw;
         }
       }
@@ -987,6 +993,11 @@
           @media (min-width: 768px) {
             font-size: 50px;
             margin: 60px 60px 30px 0;
+          }
+          
+          @media (min-width: 1024px) {
+            font-size: 34px;
+            margin: 0 0 30px 0;
           }
           
           @media (min-width: 1024px) {
@@ -1018,8 +1029,8 @@
       
       @media (min-width: 1440px) {
         margin: auto;
-        padding: 50px 80px;
-        width: 80%;
+        padding: 50px 0;
+        width: 100%;
       }
       
       @media (min-width: 1920px) {
@@ -1094,7 +1105,7 @@
           }
           
           @media (min-width: 1440px) {
-            height: 200px;
+            height: 150px;
           }
         }
       }
