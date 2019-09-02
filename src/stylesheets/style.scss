@@ -56,13 +56,6 @@
       left: 55%;
       width: 90%;
     }
-    
-    @media (min-width: 1440px) {
-      height: 90vh;
-      top: 40px;
-      left: 97%;
-      width: 3%;
-    }
 
     &::after {
       content: '';
@@ -576,6 +569,10 @@
       @media (min-width: 1440px) {
         padding: 160px 160px 0 160px;
       }
+      
+      @media (min-width: 1920px) {
+        padding: 0;
+      }
     }
   }
   
@@ -605,6 +602,11 @@
     @media (min-width: 1440px) {
       font-size: 36px;
       padding: 10px 160px 10px 160px;
+    }
+    
+    @media (min-width: 1920px) {
+      font-size: 36px;
+      padding: 0;
     }
   }
   
@@ -652,6 +654,12 @@
       bottom: 0;
       left: 100%;
       width: 50vw;
+    }
+    
+    @media (min-width: 1920px) {
+      bottom: 0;
+      left: 100%;
+      width: 40vw;
     }
 
     &--position {
@@ -725,7 +733,7 @@
         padding: 150px 100px;
         position: absolute;
         left: 0;
-        width: 25vw;
+        width: 20vw;
       }
 
       &[aria-hidden='true'] {
@@ -743,9 +751,24 @@
         }
         
         @media (min-width: 1440px) {
+          margin-left: -40vw;
+          margin-top: 0;
+          width: 20vw;
+
+          .ssm-slideout--navigation--menu {
+            font-size: 30px;
+          }
+        }
+        
+        @media (min-width: 1920px) {
           margin-left: -50vw;
           margin-top: 0;
-          width: 25vw;
+          padding: 150px 100px;
+          width: 20vw;
+
+          .ssm-slideout--navigation--menu {
+            font-size: 40px;
+          }
         }
       }
 
@@ -784,6 +807,7 @@
     &--contact {
       height: 50vh;
       left: 50%;
+      display: none;
       opacity: 0;
       position: absolute;
       transition: all .35s ease-out;
@@ -791,8 +815,10 @@
       width: 75%;
 
       @media (min-width: 1024px) {
-        left: 45%;
-        width: 65%;
+        left: 71%;
+        top: 43%;
+        transform: translate(-50%, -50%);
+        width: 40%;
       }
     }
 
@@ -834,7 +860,12 @@
         }
         
         @media (min-width: 1440px) {
-          left: -25vw;
+          left: -20vw;
+          width: 50vw;
+        }
+        
+        @media (min-width: 1920px) {
+          left: -30vw;
           width: 50vw;
         }
       }
@@ -870,6 +901,22 @@
 
         @media (min-width: 1024px) {
           padding-top: 0;
+        }
+
+        &-inner {
+          @media (min-width: 1920px) {
+            left: 50%;
+            position: absolute;
+            top: 60%;
+            transform: translate(-50%, -50%);
+            transition: all .35s ease-out;
+            transition-delay: .25s;
+            width: 50%;
+
+            &[data-active='true'] {
+              top: 50%;
+            }
+          }
         }
 
         &.mission {
@@ -954,7 +1001,7 @@
         padding: 150px 100px;
         position: absolute;
         right: 0;
-        width: 25vw;
+        width: 20vw;
       }
 
       &[data-active='true'] {
@@ -965,11 +1012,12 @@
         }
         
         @media (min-width: 1440px) {
-          width: 75vw;
+          width: 70vw;
           padding: 150px 110px;
         }
 
         .ssm-slideout--contact {
+          display: block;
           opacity: 1;
         }
 
@@ -979,6 +1027,14 @@
 
         .ssm-slideout--mission_statement {
           margin: 0 30px 30px 17px;
+
+          @media (min-width: 1024px) {
+            left: 23%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 41%;
+            width: 30%;
+          }
 
           @media (min-width: 1440px) {
             margin: 0 330px 30px 17px;
@@ -1006,7 +1062,15 @@
         @media (min-width: 1440px) {
           margin-top: 0;
           padding: 150px 50px;
-          width: 25vw;
+          width: 20vw;
+        }
+        
+        @media (min-width: 1920px) {
+          padding: 150px 100px;
+
+          .ssm-slideout--mission_statement {
+            font-size: 40px;
+          }
         }
       }
 
@@ -1028,6 +1092,11 @@
           @media (min-width: 1024px) {
             font-size: 34px;
             margin: 0 0 30px 0;
+          }
+         
+          @media (min-width: 1920px) {
+            font-size: 40px;
+            margin: 0 0 50px 0;
           }
 
         &-emphasis {
