@@ -243,6 +243,7 @@ class StudioSupermassive {
     const navigation = qs('.ssm-slideout--navigation');
     const mission = qs('.ssm-slideout--mission');
     const content = qs('.ssm-slideout--content');
+    const detailsInner = qs('.ssm-slideout--content_details-inner');
     const timeline = new TimelineLite();
     const slideout = qs('.ssm-slideout');
     
@@ -250,8 +251,14 @@ class StudioSupermassive {
       menuLinks.forEach((link) => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
+
+          const contentDetails = qsa('.ssm-slideout--content_details-inner');
+          if(contentDetails.length) {
+            contentDetails.forEach((content) => {
+              content.setAttribute('data-active', 'false');
+            });
+          }
           if(e.target.getAttribute('data-section') === 'contact') {
-            // console.log('contact');
 
             if(navigation && mission && content) {
               navigation.setAttribute('aria-hidden', 'true');
@@ -274,7 +281,7 @@ class StudioSupermassive {
                     menuContent.setAttribute('data-active', 'false');
                     menuContent.setAttribute('data-disabled', 'false');
                     mission.setAttribute('data-active', 'false');
-                    
+
                     if (hiddenElements.length) {
                       hiddenElements.forEach((el) => {
                         if (el.hasAttribute('aria-hidden')) {
@@ -291,7 +298,12 @@ class StudioSupermassive {
             if (menuContent.hasAttribute('data-active')) {
               menuContent.setAttribute('data-active', 'true');
               menuContent.setAttribute('data-disabled', 'false');
-              this.superMassiveLock(e.target);              
+              this.superMassiveLock(e.target);
+
+              let curSection = qs(`.ssm-slideout--content_details.${e.target.getAttribute('data-section')}`);
+              curSection = curSection.querySelector('.ssm-slideout--content_details-inner');
+
+              curSection.setAttribute('data-active', 'true');
             }
 
             mission.setAttribute('data-active', 'false');
@@ -321,6 +333,13 @@ class StudioSupermassive {
       menuControlBack.addEventListener('click', (e) => {
         if (menuContent && menuContent.getAttribute('data-active') === 'true') {
           menuContent.setAttribute('data-active', 'false');
+
+          const contentDetails = qsa('.ssm-slideout--content_details-inner');
+          if(contentDetails.length) {
+            contentDetails.forEach((content) => {
+              content.setAttribute('data-active', 'false');
+            });
+          }
 
           if (hiddenElements.length) {
             hiddenElements.forEach((el) => {
@@ -428,7 +447,55 @@ class StudioSupermassive {
         window.addEventListener('resize', (e) => {
           const innerWidth = this.superMassiveWindow();
           
-          if (innerWidth >= 1024 && innerWidth < 1440) {
+          if (innerWidth >= 1920) {
+            if (isActive === 'false') {
+              this.resetMenuBackControl();
+    
+              timeline.to(slideout, .85, {
+                ease: Power4.easeOut,
+                left: '100%',
+              });
+  
+              timeline.to(ssmLogoWrapper, .25, {
+                ease: Power4.easeOut,
+                left: '50%',
+              }, '-=1.1')
+            } else {
+              timeline.to(slideout, .85, {
+                ease: Power4.easeOut,
+                left: '60%',
+              });
+  
+              timeline.to(ssmLogoWrapper, .25, {
+                ease: Power4.easeOut,
+                left: '25%',
+              }, '-=1.1')
+            }
+          } else if (innerWidth >= 1440 && innerWidth < 1920) {
+            if (isActive === 'false') {
+              this.resetMenuBackControl();
+    
+              timeline.to(slideout, .85, {
+                ease: Power4.easeOut,
+                left: '100%',
+              });
+  
+              timeline.to(ssmLogoWrapper, .25, {
+                ease: Power4.easeOut,
+                left: '50%',
+              }, '-=1.1')
+            } else {
+              timeline.to(slideout, .85, {
+                ease: Power4.easeOut,
+                left: '50%',
+              });
+  
+              timeline.to(ssmLogoWrapper, .25, {
+                ease: Power4.easeOut,
+                left: '15%',
+              }, '-=1.1')
+            }
+          } else if (innerWidth >= 1024) {
             if (isActive === 'true') {
               slideout.style.bottom = 'auto';
               slideout.style.left = '30vw';
@@ -516,7 +583,7 @@ class StudioSupermassive {
 
             timeline.to(ssmLogoWrapper, .25, {
               ease: Power4.easeOut,
-              left: '-4%',
+              left: '-10%',
             }, '-=1.1')
           }
         } else if (innerWidth >= 320 && innerWidth < 1024) {
