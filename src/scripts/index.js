@@ -3,6 +3,7 @@ import { TimelineLite, CSSPlugin, AttrPlugin, Power1 }  from "gsap/all";
 import '../stylesheets/style.scss';
 import '../scripts/hammer.js';
 import { Power0 } from 'gsap';
+import '../scripts/touch-enable.js';
 
 class StudioSupermassive {
   constructor() {

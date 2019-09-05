@@ -56,6 +56,10 @@
       left: 55%;
       width: 90%;
     }
+    
+    @media (min-width: 1920px) {
+      top: 40px;
+    }
 
     &::after {
       content: '';
@@ -66,7 +70,8 @@
     &--menu {
       height: 15px;
       float: right;
-      width: 17px;
+      position: relative;
+      width: 20px;
 
       @media (min-width: 768px) {
         height: 20px;
@@ -75,6 +80,10 @@
       
       @media (min-width: 1024px) {
         margin-right: 2%;
+      }
+
+      @media (min-width: 1920px) {
+        width: 30px;
       }
 
       &[data-active='true'] {
@@ -105,13 +114,18 @@
       &_bar {
         background: $ssm-lightest;
         height: 2px;
-        margin: 4px 0;
+        margin: 5px 0;
         transition: all .25s ease-out;
         width: 100%;
 
         @media (min-width: 768px) {
           height: 3px;
           margin: 5px 0;
+        }
+        
+        @media (min-width: 1920px) {
+          height: 3px;
+          margin: 7px 0;
         }
 
         &:first-child {
@@ -128,8 +142,17 @@
       position: absolute;
       transition: all .35s ease-out;
       transition-delay: .25s;
-      top: 40px;
+      top: 50px;
       width: 20px;
+
+      &::before {
+        content: 'back';
+        color: $ssm-lightest;
+        font-size: 8px;
+        left: 0;
+        position: absolute;
+        top: -10px;
+      }
 
       @media (min-width: 768px) {
         font-size: 20px;
@@ -140,6 +163,10 @@
         left: 0;
         top: 0;
         transform: rotate(-180deg);
+
+        &::before {
+          content: '';
+        }
       }
 
       &[data-active="true"] {
@@ -437,7 +464,11 @@
       width: 100%;
     }
     
-    @media (min-width: 1440px) {
+    @media (min-width: 860px) {
+      bottom: 7%;
+    }
+
+    @media (min-width: 1280px) {
       bottom: 5%;
     }
 
@@ -857,7 +888,7 @@
       top: 50%;
       transform: translateY(-50%);
       transition: all .35s ease-out;
-      width: 85%;
+      width: 87%;
 
       @media (min-width: 768px) {
         margin-left: 75px;
@@ -898,30 +929,43 @@
         transition: all .5s ease-out;
 
         &[data-section='mission'] {
-          margin-top: 0;
+          .ssm-slideout--content_details.mission {
+            bottom: 0;
+          }
         }
         
         &[data-section='about'] {
-          margin-top: -100vh;
+          .ssm-slideout--content_details.about {
+            bottom: 0;
+          }
         }
         
         &[data-section='what'] {
-          margin-top: -200vh;
+          .ssm-slideout--content_details.what {
+            bottom: 0;
+          }
         }
         
         &[data-section='team'] {
-          margin-top: -300vh;
+          .ssm-slideout--content_details.team {
+            bottom: 0;
+          }
         }
         
         &[data-section='contact'] {
-          margin-top: -400vh;
+          .ssm-slideout--content_details.contact {
+            bottom: 0;
+          }
         }
       }
 
       &_details {
-        overflow: hidden;
-        position: relative;
+        bottom: -100vh;
         height: 100vh;
+        overflow: hidden;
+        position: absolute;
+        transition: all .35s ease-out;
+        width: 100%;
 
         @media (min-width: 1024px) {
           padding-top: 0;
@@ -950,17 +994,20 @@
         &.mission {
           background: url('../images/our-mission-bg.jpg') bottom center no-repeat;
           background-size: cover;
+          // z-index: 10;
         }
         
         &.about {
           background: url('../images/about-us-bg.jpg') bottom center no-repeat;
           background-size: cover;
+          // z-index: 20;
         }
         
         &.what {
           background: url('../images/what-we-do-bg.jpg') bottom center no-repeat;
           background-size: cover;
           padding-top: 150px;
+          // z-index: 30;
 
           @media (min-width: 1024px) {
             padding-top: 0;
@@ -975,6 +1022,7 @@
         &.team {
           background: url('../images/our-team-bg.jpg') top center no-repeat;
           background-size: 215%;
+          z-index: 40;
 
           @media (min-width: 1440px) {
             background-size: 120%;
@@ -989,6 +1037,7 @@
         &.contact {
           background: url('../images/our-mission-bg.jpg') bottom center no-repeat;
           background-size: cover;
+          z-index: 50;
         }
       }
     }
@@ -1192,7 +1241,7 @@
 
       &_prompt {
         @include Europa-Bold;  
-        font-size: 24px;
+        font-size: 30px;
         margin: 10px 0;
 
         @media (min-width: 768px) {
