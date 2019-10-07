@@ -7,12 +7,60 @@ import '../scripts/touch-enable.js';
 
 class StudioSupermassive {
   constructor() {
+    const preloader = qs('.ssm--preloader');
+    const progress = qs('.ssm--preloader_progress');
+    let counter = 5;
+
+    const timeline = new TimelineLite();
+
+    const interval = setInterval(() => {
+      if(counter >= 100) {
+        clearInterval(interval);
+
+        timeline.to(preloader, 1.25, {
+          delay: .50,
+          opacity: 0,
+          ease: Power4.easeOut,
+          onComplete: this.preloadIt()
+        });
+      } else {
+        counter++;
+        progress.innerHTML = `${counter}%`;
+      }
+    }, 50); 
+  };
+
+  preloadIt() {
+    setTimeout(() => {
+      this.superMassivePreloader();
+    }, 1000)
+  }
+
+  superMassivePreloader = () => {
     this.superMassiveIntro();
     // this.superMassiveParallax();
     // this.superMassiveGlitch();
+    this.superMassiveSocial();
     this.superMassiveMenu();
     this.superMassiveForm();
     this.superMassiveAction();
+    this.preloader = qs('.ssm--preloader');
+    this.preloader.setAttribute('data-loaded', '');
+  }
+
+  superMassiveSocial = () => {
+    const social = qsa('.ssm-action--link.social');
+    const socialTakeover = qs('.ssm-social--takeover');
+    social.forEach((channel, index) => {
+      channel.addEventListener('mouseover', (evt) => {
+        const channelName = social[index].hasAttribute('data-channel') && social[index].getAttribute('data-channel');
+        socialTakeover.setAttribute('data-channel', `${channelName}`);
+      });
+
+      channel.addEventListener('mouseleave', (evt) => {
+        socialTakeover.removeAttribute('data-channel',);
+      });
+    });
   }
 
   superMassiveLock = (link) => {
@@ -41,7 +89,7 @@ class StudioSupermassive {
     timeline.to(".ssm-logo--svg", 5, {
       ease: Power4.easeOut,
       width: '100%',
-      // onComplete: this.superMassiveStagger
+      onComplete: (() => {qs('.ssm-mission').setAttribute('data-enter', '')})
     })
     .to(".ssm-mission--wrapper", 4.5, {
       ease: Power4.easeOut,

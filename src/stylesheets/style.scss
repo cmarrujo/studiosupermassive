@@ -28,6 +28,31 @@
     background-size: cover;
   }
 
+  &--preloader {
+    background: #101010;
+    height: 100vh;
+    position: fixed;
+    transition: all .25s ease-out;
+    width: 100vw;
+    z-index: 9999;
+
+    &[data-loaded] {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &_progress {
+      color: $ssm-lightest;
+      font-size: 42vw;
+      left: 50%;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -55%);
+    }
+  }
+
   &-logo--wrapper {
     &[data-active='true'] {
       .ssm-logo {
@@ -79,11 +104,16 @@
       }
       
       @media (min-width: 1024px) {
+        height: 25px;
         margin-right: 2%;
       }
 
       @media (min-width: 1920px) {
         width: 30px;
+      }
+
+      &:hover {
+        cursor: pointer;
       }
 
       &[data-active='true'] {
@@ -151,6 +181,7 @@
       }
       
       @media (min-width: 1024px) {
+        display: none;
         left: 0;
         top: 0;
         transform: rotate(-180deg);
@@ -442,25 +473,31 @@
   }
 
   &-mission {
-    bottom: 10%;
+    bottom: 5%;
     line-height: 1.5;
     margin: 0;
+    opacity: 0;
     padding: 0;
     position: absolute;
+    transition: all .5s ease-out;
     text-align: center;
     width: 100%;
 
-    @media (min-width: 568px) {
-      padding: 0;
-      width: 100%;
-    }
-    
-    @media (min-width: 860px) {
-      bottom: 7%;
-    }
+    &[data-enter] {
+      opacity: 1;
 
-    @media (min-width: 1280px) {
-      bottom: 5%;
+      @media (min-width: 568px) {
+        padding: 0;
+        width: 100%;
+      }
+      
+      @media (min-width: 860px) {
+        bottom: 7%;
+      }
+  
+      @media (min-width: 1280px) {
+        bottom: 10%;
+      }
     }
   }
   
@@ -521,34 +558,47 @@
       }
 
       &:hover {
-        color: rgba($ssm-lightest, 1);
-      }
-
-      &[data-action-type='instagram'] {
-        .ssm-action--link_text {
-          color: $ssm-magenta;
-        }
-
-        &:hover {
-          color: $ssm-magenta;
-        }
-      }
-      
-      &[data-action-type='twitter'] {
-        .ssm-action--link_text {
-          color: $ssm-cyan;
-        }
-
-        &:hover {
-          color: $ssm-cyan;
+        .social--svg {
+          transform: scale(2);
         }
       }
 
-      .social {
+      .social--svg {
         height: 25px;
-        width: 40px;
         fill: $ssm-lightest;
+        transition: all .35s ease-out;
+        width: 40px;
       }
+    }
+  }
+
+  &-social--takeover {
+    height: 100vh;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: all 1s ease-out;
+    opacity: 0;
+    visibility: hidden;
+    width: 100vw;
+    z-index: 999;
+
+    &[data-channel="facebook"] {
+      background: #3C5A99;
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    &[data-channel="instagram"] {
+      background: #833AB4;
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    &[data-channel="twitter"] {
+      background: #1da1f2 ;
+      opacity: 1;
+      visibility: visible;
     }
   }
 
@@ -565,9 +615,11 @@
     
     @media (min-width: 1024px) {
       padding: 0 0 5px 0;
+      font-size: 20px;
     }
 
     &.content {
+      font-size: 20px;
       padding: 0 20px;
 
       @media (min-width: 768px) {
@@ -853,7 +905,7 @@
 
       @media (min-width: 1024px) {
         left: 71%;
-        top: 43%;
+        top: 35%;
         transform: translate(-50%, -50%);
         width: 40%;
       }
@@ -972,7 +1024,7 @@
             top: 10%;
 
             @media (min-width: 1440px) {
-              top: 15.5%;
+              top: 11%;
             }
           }
         }
@@ -1105,15 +1157,13 @@
           margin: 30px 50px 40px 0;
 
           @media (min-width: 1024px) {
-            left: 23%;
-            position: absolute;
-            transform: translate(-50%, -50%);
-            top: 41%;
             width: 30%;
           }
 
           @media (min-width: 1440px) {
-            margin: 0 330px 30px 17px;
+            margin: 0;
+            height: 250px;
+            width: 365px;
           }
         }
       }
@@ -1145,6 +1195,8 @@
           .ssm-slideout--mission_statement {
             line-height: 1.55;
             font-size: 28px;
+            height: 250px;
+            width: 365px;
           }
 
           .ssm-action--button {
