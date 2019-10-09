@@ -214,49 +214,6 @@
         left: 0;
         width: 10%
       }
-
-      &_play {
-        background: transparent;
-        border-left: 17px solid white;
-        border-top: 9px solid transparent;
-        border-bottom: 9px solid transparent;
-        height: 0;
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 0;
-
-        @media (min-width: 768px) {
-          border-left: 20px solid white;
-        }
-        
-        @media (min-width: 1024px) {
-          display: none;
-        }
-      }
-      
-      &_play-cutout {
-        background: transparent;
-        border-left: 10px solid black;
-        border-top: 4px solid transparent;
-        border-bottom: 4px solid transparent;
-        height: 0;
-        left: 45%;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 0;
-        z-index: 1;
-
-        @media (min-width: 768px) {
-          border-left: 12px solid black;
-        }
-
-        @media (min-width: 1024px) {
-          display: none;
-        }
-      }
     }
   }
 
@@ -269,6 +226,7 @@
     transform: translate(-50%, -50%);
     transition: all .40s ease-out;
     width: 85%;
+    z-index: 21;
     
     @media (min-width: 568px) {
       margin: auto 0;
@@ -337,138 +295,6 @@
         transform: translate(-50%, -50%);
         width: 10%;
       }
-
-      @keyframes cyanGlitch {
-        0% {
-          left: 53%;
-          top: 50%;
-        }
-        25% {
-          left: 54%;
-          top: 51%;
-        }
-        50% {
-          left: 51%;
-          top: 52%;
-        }
-        75% {
-          left: 54%;
-          top: 53%;
-        }
-        100% {
-          left: 55%;
-          top: 51%;
-        }
-      }
-
-      &.cyan {
-        fill: $ssm-cyan;
-        opacity: 0;
-
-        &[data-animate='true'] {
-          animation: cyanGlitch 1s infinite;
-          opacity: .90;
-        }
-      }
-
-      @keyframes magentaGlitch {
-        0% {
-          left: 52%;
-          top: 50%;
-        }
-        25% {
-          left: 51%;
-          top: 52%;
-        }
-        50% {
-          left: 53%;
-          top: 54%;
-        }
-        75% {
-          left: 54%;
-          top: 53%;
-        }
-        100% {
-          left: 53%;
-          top: 48%;
-        }
-      }
-      
-      &.magenta {
-        fill: $ssm-magenta;
-        opacity: 0;
-
-        &[data-animate='true'] {
-          animation: magentaGlitch .55s infinite;
-          opacity: .85;
-        }
-      }
-
-      @keyframes yellowGlitch {
-        0% {
-          left: 52%;
-          top: 49%;
-        }
-        25% {
-          left: 54%;
-          top: 51%;
-        }
-        50% {
-          left: 53%;
-          top: 52%;
-        }
-        75% {
-          left: 54%;
-          top: 53%;
-        }
-        100% {
-          left: 56%;
-          top: 51%;
-        }
-      }
-     
-      &.yellow {
-        fill: $ssm-yellow;
-        opacity: 0;
-
-        &[data-animate='true'] {
-          animation: yellowGlitch 1.2s infinite;
-          opacity: .95;
-        }
-      }
-      
-      @keyframes lightestGlitch {
-        0% {
-          left: 52%;
-          top: 49%;
-        }
-        25% {
-          left: 54%;
-          top: 51%;
-        }
-        50% {
-          left: 53%;
-          top: 52%;
-        }
-        75% {
-          left: 54%;
-          top: 53%;
-        }
-        100% {
-          left: 56%;
-          top: 51%;
-        }
-      }
-
-      &.lightest {
-        fill: $ssm-lightest;
-        opacity: 0;
-
-        &[data-animate='true'] {
-          animation: lightestGlitch 1.5s infinite;
-          opacity: .25;
-        }
-      }
     }
   }
 
@@ -482,6 +308,15 @@
     transition: all .5s ease-out;
     text-align: center;
     width: 100%;
+    z-index: 9999;
+
+    &[data-active='true'] {
+      z-index: 99;
+    }
+    
+    &[data-active='false'] {
+      z-index: 9999;
+    }
 
     &[data-enter] {
       opacity: 1;
@@ -581,7 +416,7 @@
     opacity: 0;
     visibility: hidden;
     width: 100vw;
-    z-index: 999;
+    z-index: 10;
 
     &[data-channel="facebook"] {
       background: #3C5A99;

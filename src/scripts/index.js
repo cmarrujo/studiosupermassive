@@ -10,6 +10,27 @@ class StudioSupermassive {
     const preloader = qs('.ssm--preloader');
     const progress = qs('.ssm--preloader_progress');
     let counter = 5;
+    const svgLogoPaths = qsa('.ssm-logo--svg_path');
+
+    svgLogoPaths.forEach((path) => {
+      path.addEventListener('mouseenter', (evt) => {
+        const timeline = new TimelineLite();
+        timeline.to(path, 1.25, {
+          scale: 1.2,
+          transformOrigin: '50% 50%',
+          ease: Power4.easeOut,
+        });
+      });
+      
+      path.addEventListener('mouseleave', (evt) => {
+        const timeline = new TimelineLite();
+        timeline.to(path, 1, {
+          scale: 1,
+          transformOrigin: '50% 50%',
+          ease: Power4.easeOut,
+        });
+      });
+    });
 
     const timeline = new TimelineLite();
 
@@ -479,6 +500,9 @@ class StudioSupermassive {
         const isActive = (qs('.ssm-slideout').getAttribute('data-active') === 'false') ? 'true' : 'false';
         const plugins = [ CSSPlugin, AttrPlugin ];
         const timeline = new TimelineLite();
+        const social = qs('.ssm-mission');
+        
+        social.setAttribute('data-active', `${isActive}`);
 
         const mission = qs('.ssm-slideout--mission');
         mission.setAttribute('data-active', `${!isActive}`);
