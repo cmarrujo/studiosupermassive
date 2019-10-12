@@ -24,38 +24,38 @@ class StudioSupermassive {
       
       path.addEventListener('mouseleave', (evt) => {
         const timeline = new TimelineLite();
-        timeline.to(path, 1, {
+        timeline.to(path, 1.5, {
           scale: 1,
           transformOrigin: '50% 50%',
           ease: Power4.easeOut,
         });
       });
     });
-    this.superMassivePreloader();
+
     const timeline = new TimelineLite();
 
-    // const interval = setInterval(() => {
-    //   if(counter >= 100) {
-    //     clearInterval(interval);
+    const interval = setInterval(() => {
+      if(counter >= 100) {
+        clearInterval(interval);
 
-    //     timeline.to(preloader, 1.25, {
-    //       delay: .50,
-    //       opacity: 0,
-    //       ease: Power4.easeOut,
-    //       onComplete: this.preloadIt()
-    //     });
-    //   } else {
-    //     counter++;
-    //     progress.innerHTML = `${counter}%`;
-    //   }
-    // }, 50); 
+        timeline.to(preloader, 1.25, {
+          delay: .50,
+          opacity: 0,
+          ease: Power4.easeOut,
+          onComplete: this.preloadIt()
+        });
+      } else {
+        counter++;
+        progress.innerHTML = `${counter}%`;
+      }
+    }, 50); 
   };
 
-  // preloadIt() {
-  //   setTimeout(() => {
-  //     this.superMassivePreloader();
-  //   }, 1000)
-  // }
+  preloadIt() {
+    setTimeout(() => {
+      this.superMassivePreloader();
+    }, 1000)
+  }
 
   superMassivePreloader = () => {
     this.superMassiveIntro();

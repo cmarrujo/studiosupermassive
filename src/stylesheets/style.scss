@@ -325,6 +325,7 @@
     }
 
     &[data-enter] {
+      bottom: 10%;
       opacity: 1;
 
       @media (min-width: 568px) {
@@ -333,7 +334,7 @@
       }
       
       @media (min-width: 860px) {
-        bottom: 7%;
+        bottom: 10%;
       }
   
       @media (min-width: 1280px) {
@@ -361,8 +362,9 @@
         padding: 20px 40px;
       }
       
-      @media (min-width: 1440px) {
+      @media (min-width: 1280px) {
         font-size: 14px;
+        padding: 14px 30px;
       }
 
       &-submit {
@@ -754,7 +756,15 @@
 
       &_info {
         box-sizing: border-box;
-        padding: 10px 15px;
+        padding: 12px 0;
+        
+        @media (min-width: 768px) {
+          padding: 14px 15px;
+        }
+        
+        @media (min-width: 1280px) {
+          padding: 11px 15px;
+        }
       }
 
       &_info-label {
@@ -765,15 +775,42 @@
       
       &_info-details {
         @include Europa-Bold;
-        font-size: 24px;
         color: #00aeff;
+        font-size: 11px;
+        padding: 0 5px;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        @media (min-width: 414px) {
+          font-size: 14px;
+        }
+        
+        @media (min-width: 768px) {
+          font-size: 24px;
+          padding: 14px 15px;
+        }
+        
+        @media (min-width: 1280px) {
+          font-size: 20px;
+          padding: 10px 15px;
+        }
       }
 
       @media (min-width: 1024px) {
-        left: 71%;
-        top: 160px;
+        left: 75%;
+        top: 155px;
         transform: translateX(-50%, 0);
         width: 40%;
+      }
+      
+      @media (min-width: 1280px) {
+        left: 75%;
+        top: 155px;
+        transform: translateX(-50%, 0);
+        width: 45%;
       }
     }
 
@@ -974,6 +1011,15 @@
         width: 35vw;
       }
       
+      @media (min-width: 1280px) {
+        height: 100vh;
+        margin-left: 0;
+        padding: 160px 70px;
+        position: absolute;
+        right: 0;
+        width: 35vw;
+      }
+      
       @media (min-width: 1440px) {
         background: $ssm-key;
         height: 100vh;
@@ -1001,13 +1047,23 @@
         }
 
         @media (min-width: 1024px) {
-          padding: 0 80px;
+          padding: 125px 100px;
           width: 70vw;
         }
         
         @media (min-width: 1440px) {
           width: 70vw;
-          padding: 150px 250px;
+          padding: 150px 100px;
+        }
+        
+        @media (min-width: 1920px) {
+          width: 70vw;
+          padding: 150px 200px;
+        }
+        
+        @media (min-width: 2560px) {
+          width: 70vw;
+          padding: 150px 300px;
         }
 
         .ssm-slideout--contact {
@@ -1023,13 +1079,19 @@
           margin: 30px 50px 40px 0;
 
           @media (min-width: 1024px) {
-            width: 30%;
+            width: 40%;
           }
 
           @media (min-width: 1440px) {
             margin: 0;
             height: 250px;
-            width: 365px;
+            width: 335px;
+          }
+          
+          @media (min-width: 1920px) {
+            margin: 0;
+            height: 250px;
+            width: 400px;
           }
         }
       }
